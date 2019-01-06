@@ -11,10 +11,10 @@
 
 ## 截图
 
-![01](/data/workSpace/VueJs/VueJS-docset-CN/截图/01.png)
+![01](./截图/01.png)
 
-![02](/data/workSpace/VueJs/VueJS-docset-CN/截图/02.png)
+![02](/截图/02.png)
 
-![03](/data/workSpace/VueJs/VueJS-docset-CN/截图/03.png)
+![03](./截图/03.png)
 
-![04](/data/workSpace/VueJs/VueJS-docset-CN/截图/04.png)
+![04](./截图/04.png)
