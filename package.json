@@ -1,0 +1,25 @@
+{
+  "name": "Dash-ThinkJS",
+  "version": "0.0.1",
+  "description": "ThinkJS Dash Documentation",
+  "main": "build.js",
+  "scripts": {
+    "start": "npm run compile-cn",
+    "compile-cn": "node build.js zh-CN",
+    "compile-en": "node build.js en"
+  },
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "sqlite-sync": "^0.3.8",
+    "sync-exec": "^0.6.2"
+  },
+  "keywords": [
+    "ThinkJS",
+    "Dash",
+    "Node",
+    "Docset",
+    "Documentation"
+  ],
+  "author": "lizheming",
+  "license": "ISC"
+}
