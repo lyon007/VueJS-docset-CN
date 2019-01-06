@@ -1,0 +1,1125 @@
+<html><!-- Mirrored from vuejs.org/v2/guide/components-custom-events.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Dec 2018 16:41:02 GMT --><!-- Added by HTTrack --><head><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+
+    <title>Custom Events</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="alternate" hreflang="x-default" href="components-custom-events.html">
+    <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/components-custom-events.html">
+    <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/components-custom-events.html">
+    <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/components-custom-events.html">
+    <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/components-custom-events.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/components-custom-events.html">
+    <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/components-custom-events.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Custom Events — Vue.js">
+    <meta property="og:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta property="og:image" content="../../images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Custom Events — Vue.js">
+    <meta name="twitter:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="twitter:image" content="../../images/logo.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="../../images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/icons/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content="../../images/icons/ms-icon-144x144.png">
+    <link rel="icon" href="../../images/logo.png" type="image/png">
+
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <link rel="manifest" href="../../manifest.json">
+
+    <link href="../../../fonts.googleapis.com/css5427.css?family=Source+Sans+Pro:300,400,600|Roboto%20Mono" rel="stylesheet" type="text/css">
+    <link href="../../../fonts.googleapis.com/css97f5.css?family=Dosis:500&amp;text=Vue.js" rel="stylesheet" type="text/css">
+
+    <link href="../../../maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="../../css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script async="" src="../../../www.google-analytics.com/analytics.js"></script><script src="../../js/vue.js"></script>
+    <script>
+      Vue.config.productionTip = false
+      window.PAGE_TYPE = "guide"
+    </script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46852172-1', 'vuejs.org');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- vimeo analytics -->
+    <script type="text/javascript" defer="defer" src="../../../extend.vimeocdn.com/ga/72160148.js"></script>
+  <script id="_bsa_srv-CKYD62QM_0" type="text/javascript" src="file://srv.buysellads.com/ads/CKYD62QM.json?callback=_bsa_go&amp;segment=placement:vuejsorg"></script><script id="_carbonads_projs" type="text/javascript" src="//srv.carbonads.net/ads/CKYIK2QU.json?segment=placement:vuejsorg&amp;callback=_carbonads_go"></script><link href="//dash_ref_main/Section/Sections/1"><link href="//dash_ref_Event%2DNames/Section/Event%20Names/0"><link href="//dash_ref_Customizing%2DComponent%2Dv%2Dmodel/Section/Customizing%20Component%20v-model/0"><link href="//dash_ref_Binding%2DNative%2DEvents%2Dto%2DComponents/Section/Binding%20Native%20Events%20to%20Components/0"><link href="//dash_ref_sync%2DModifier/Section/.sync%20Modifier/0"></head>
+  <body class="docs">
+    <div id="mobile-bar">
+      <a class="menu-button"></a>
+      <a class="logo" href="../../index.html"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="../../index.html">
+    <img src="../../images/logo.png" alt="vue logo">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Learn</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="index.html" class="nav-link current">Guide</a></li>
+      <li><a href="../api/index.html" class="nav-link">API</a></li>
+      <li><a href="../style-guide/index.html" class="nav-link">Style Guide</a></li>
+      <li><a href="../examples/index.html" class="nav-link">Examples</a></li>
+      <li><a href="../cookbook/index.html" class="nav-link">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Ecosystem</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Help</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Forum</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Chat</a></li>
+      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups</a></li>
+    </ul></li>
+    <li><h4>Tooling</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org/" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Core Libraries</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>News</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org/" class="nav-link" target="_blank">Weekly News</a></li>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Jobs</a></li>
+    </ul></li>
+    <li><h4>Resource Lists</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Official Repos</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="team.html" class="nav-link team">Team</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="../../support-vuejs/index.html" class="nav-link">Support Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="../../support-vuejs/index.html#One-time-Donations" class="nav-link">One-time Donations</a></li>
+      <li><a href="../../support-vuejs/index.html#Recurring-Pledges" class="nav-link">Recurring Pledges</a></li>
+      <li><a href="https://vue.threadless.com/" target="_blank" class="nav-link">T-Shirt Shop</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Translations</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://cn.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+  </ul>
+</div>
+
+    
+      <a class="dashAnchor" name="//dash_ref_main/Section/Sections/1"></a><div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Learn</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="index.html" class="nav-link current">Guide</a></li>
+      <li><a href="../api/index.html" class="nav-link">API</a></li>
+      <li><a href="../style-guide/index.html" class="nav-link">Style Guide</a></li>
+      <li><a href="../examples/index.html" class="nav-link">Examples</a></li>
+      <li><a href="../cookbook/index.html" class="nav-link">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Ecosystem</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Help</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Forum</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Chat</a></li>
+      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Meetups</a></li>
+    </ul></li>
+    <li><h4>Tooling</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org/" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Core Libraries</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>News</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org/" class="nav-link" target="_blank">Weekly News</a></li>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Jobs</a></li>
+    </ul></li>
+    <li><h4>Resource Lists</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Official Repos</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="team.html" class="nav-link team">Team</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="../../support-vuejs/index.html" class="nav-link">Support Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="../../support-vuejs/index.html#One-time-Donations" class="nav-link">One-time Donations</a></li>
+      <li><a href="../../support-vuejs/index.html#Recurring-Pledges" class="nav-link">Recurring Pledges</a></li>
+      <li><a href="https://vue.threadless.com/" target="_blank" class="nav-link">T-Shirt Shop</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Translations</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://cn.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+    <div class="list">
+      <div id="sidebar-sponsors-special">
+  <div class="main-sponsor">
+    <span>Special Sponsor</span>
+    <div>
+    <a href="https://stdlib.com/" target="_blank" class="logo">
+      <img src="../../images/stdlib.png" alt="">
+    </a>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-left">
+  <div class="main-sponsor">
+    <span>Platinum Sponsors</span>
+    <div>
+    <a href="https://www.bitsrc.io/?utm_source=vue&amp;utm_medium=vue&amp;utm_campaign=vue&amp;utm_term=vue&amp;utm_content=vue" target="_blank" class="logo">
+      <img src="../../images/bit-wide.png" alt="">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="../../images/tooltwist.png" alt="tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&amp;utm_medium=Banner&amp;utm_campaign=Sponsored%20Banner&amp;utm_content=V1" target="_blank" class="logo">
+      <img src="../../images/vueschool.png" alt="vue school">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="../../images/vehikl.png" alt="vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&amp;utm_medium=website&amp;utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="../../images/nativescript.png" alt="nativescript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="../../support-vuejs/index.html">
+    Become a Sponsor
+  </a>
+</div>
+
+
+      
+        <h2>
+          
+          Guide
+          
+            <select class="version-select">
+              <option value="SELF" selected="">2.x</option>
+              <option value="v1">1.0</option>
+              <option value="012">0.12</option>
+              <option value="011">0.11</option>
+            </select>
+          
+        </h2>
+        <ul class="menu-root">
+  
+    
+    
+      
+        <li><h3>Essentials</h3></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="installation.html" class="sidebar-link">Installation</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="index-2.html" class="sidebar-link">Introduction</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="instance.html" class="sidebar-link">The Vue Instance</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="syntax.html" class="sidebar-link">Template Syntax</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="computed.html" class="sidebar-link">Computed Properties and Watchers</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="class-and-style.html" class="sidebar-link">Class and Style Bindings</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="conditional.html" class="sidebar-link">Conditional Rendering</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="list.html" class="sidebar-link">List Rendering</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="events.html" class="sidebar-link">Event Handling</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="forms.html" class="sidebar-link">Form Input Bindings</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components.html" class="sidebar-link">Components Basics</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>Components In-Depth</h3></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-registration.html" class="sidebar-link">Component Registration</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-props.html" class="sidebar-link">Props</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-custom-events.html" class="sidebar-link current">Custom Events</a>
+    <ul class="menu-sub"><li><a class="section-link" data-scroll="" href="#Event-Names">Event Names</a></li><li><a class="section-link" data-scroll="" href="#Customizing-Component-v-model">Customizing Component v-model</a></li><li><a class="section-link" data-scroll="" href="#Binding-Native-Events-to-Components">Binding Native Events to Components</a></li><li><a class="section-link" data-scroll="" href="#sync-Modifier">.sync Modifier</a></li></ul></li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-slots.html" class="sidebar-link">Slots</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-dynamic-async.html" class="sidebar-link">Dynamic &amp; Async Components</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-edge-cases.html" class="sidebar-link">Handling Edge Cases</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>Transitions &amp; Animation</h3></li>
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="transitions.html" class="sidebar-link">Enter/Leave &amp; List Transitions</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="transitioning-state.html" class="sidebar-link">State Transitions</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>Reusability &amp; Composition</h3></li>
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="mixins.html" class="sidebar-link">Mixins</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="custom-directive.html" class="sidebar-link">Custom Directives</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="render-function.html" class="sidebar-link">Render Functions &amp; JSX</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="plugins.html" class="sidebar-link">Plugins</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="filters.html" class="sidebar-link">Filters</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>Tooling</h3></li>
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="deployment.html" class="sidebar-link">Production Deployment</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="single-file-components.html" class="sidebar-link">Single File Components</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="unit-testing.html" class="sidebar-link">Unit Testing</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="typescript.html" class="sidebar-link">TypeScript Support</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+        <li><h3>Scaling Up</h3></li>
+      
+      
+      
+      
+    
+    <li>
+      <a href="routing.html" class="sidebar-link">Routing</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="state-management.html" class="sidebar-link">State Management</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="ssr.html" class="sidebar-link">Server-Side Rendering</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>Internals</h3></li>
+      
+      
+      
+    
+    <li>
+      <a href="reactivity.html" class="sidebar-link">Reactivity in Depth</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>Migrating</h3></li>
+      
+      
+    
+    <li>
+      <a href="migration.html" class="sidebar-link">Migration from Vue 1.x</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="migration-vue-router.html" class="sidebar-link">Migration from Vue Router 0.7.x</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="migration-vuex.html" class="sidebar-link">Migration from Vuex 0.6.x to 1.0</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>Meta</h3></li>
+      
+    
+    <li>
+      <a href="comparison.html" class="sidebar-link">Comparison with Other Frameworks</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="join.html" class="sidebar-link">Join the Vue.js Community!</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="team.html" class="sidebar-link">Meet the Team</a>
+    </li>
+  
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Platinum Sponsors</span>
+    <div>
+    <a href="https://www.bitsrc.io/?utm_source=vue&amp;utm_medium=vue&amp;utm_campaign=vue&amp;utm_term=vue&amp;utm_content=vue" target="_blank" class="logo">
+      <img src="../../images/bit-wide.png" alt="">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="../../images/tooltwist.png" alt="tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&amp;utm_medium=Banner&amp;utm_campaign=Sponsored%20Banner&amp;utm_content=V1" target="_blank" class="logo">
+      <img src="../../images/vueschool.png" alt="vue school">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="../../images/vehikl.png" alt="vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&amp;utm_medium=website&amp;utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="../../images/nativescript.png" alt="nativescript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="../../support-vuejs/index.html">
+    Become a Sponsor
+  </a>
+</div>
+
+
+
+<div class="content guide with-sidebar components-custom-events-guide">
+  
+    
+      <div id="ad">
+  <script async="" type="text/javascript" src="../../../cdn.carbonads.com/carbon07c1.js?serve=CKYIK2QU&amp;placement=vuejsorg" id="_carbonads_js">
+  </script>
+</div>
+
+    
+  
+  
+    <h1>Custom Events</h1>
+  
+  
+    <blockquote>
+<p>This page assumes you’ve already read the <a href="components.html">Components Basics</a>. Read that first if you are new to components.</p>
+</blockquote>
+<a class="dashAnchor" name="//dash_ref_Event%2DNames/Section/Event%20Names/0"></a><h2 id="Event-Names"><a href="#Event-Names" class="headerlink" title="Event Names" data-scroll="">Event Names</a></h2><p>Unlike components and props, event names don’t provide any automatic case transformation. Instead, the name of an emitted event must exactly match the name used to listen to that event. For example, if emitting a camelCased event name:</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$emit(<span class="string">'myEvent'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>Listening to the kebab-cased version will have no effect:</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-on:my-event</span>=<span class="string">"doSomething"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Unlike components and props, event names will never be used as variable or property names in JavaScript, so there’s no reason to use camelCase or PascalCase. Additionally, <code>v-on</code> event listeners inside DOM templates will be automatically transformed to lowercase (due to HTML’s case-insensitivity), so <code>v-on:myEvent</code> would become <code>v-on:myevent</code> – making <code>myEvent</code> impossible to listen to.</p>
+<p>For these reasons, we recommend you <strong>always use kebab-case for event names</strong>.</p>
+<a class="dashAnchor" name="//dash_ref_Customizing%2DComponent%2Dv%2Dmodel/Section/Customizing%20Component%20v-model/0"></a><h2 id="Customizing-Component-v-model"><a href="#Customizing-Component-v-model" class="headerlink" title="Customizing Component v-model" data-scroll="">Customizing Component <code>v-model</code></a></h2><blockquote>
+<p>New in 2.2.0+</p>
+</blockquote>
+<p>By default, <code>v-model</code> on a component uses <code>value</code> as the prop and <code>input</code> as the event, but some input types such as checkboxes and radio buttons may want to use the <code>value</code> attribute for a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Value" target="_blank" rel="noopener">different purpose</a>. Using the <code>model</code> option can avoid a conflict in such cases:</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'base-checkbox'</span>, {</span><br><span class="line">  model: {</span><br><span class="line">    prop: <span class="string">'checked'</span>,</span><br><span class="line">    event: <span class="string">'change'</span></span><br><span class="line">  },</span><br><span class="line">  props: {</span><br><span class="line">    checked: <span class="built_in">Boolean</span></span><br><span class="line">  },</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;input</span></span><br><span class="line"><span class="string">      type="checkbox"</span></span><br><span class="line"><span class="string">      v-bind:checked="checked"</span></span><br><span class="line"><span class="string">      v-on:change="$emit('change', $event.target.checked)"</span></span><br><span class="line"><span class="string">    &gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<p>Now when using <code>v-model</code> on this component:</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">base-checkbox</span> <span class="attr">v-model</span>=<span class="string">"lovingVue"</span>&gt;</span><span class="tag">&lt;/<span class="name">base-checkbox</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>the value of <code>lovingVue</code> will be passed to the <code>checked</code> prop. The <code>lovingVue</code> property will then be updated when <code>&lt;base-checkbox&gt;</code> emits a <code>change</code> event with a new value.</p>
+<p class="tip">Note that you still have to declare the <code>checked</code> prop in component’s <code>props</code> option.</p>
+
+<a class="dashAnchor" name="//dash_ref_Binding%2DNative%2DEvents%2Dto%2DComponents/Section/Binding%20Native%20Events%20to%20Components/0"></a><h2 id="Binding-Native-Events-to-Components"><a href="#Binding-Native-Events-to-Components" class="headerlink" title="Binding Native Events to Components" data-scroll="">Binding Native Events to Components</a></h2><p>There may be times when you want to listen directly to a native event on the root element of a component. In these cases, you can use the <code>.native</code> modifier for <code>v-on</code>:</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">base-input</span> <span class="attr">v-on:focus.native</span>=<span class="string">"onFocus"</span>&gt;</span><span class="tag">&lt;/<span class="name">base-input</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>This can be useful sometimes, but it’s not a good idea when you’re trying to listen on a very specific element, like an <code>&lt;input&gt;</code>. For example, the <code>&lt;base-input&gt;</code> component above might refactor so that the root element is actually a <code>&lt;label&gt;</code> element:</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">  {{ label }}</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-bind</span>=<span class="string">"$attrs"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-bind:value</span>=<span class="string">"value"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:input</span>=<span class="string">"$emit('input', $event.target.value)"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>In that case, the <code>.native</code> listener in the parent would silently break. There would be no errors, but the <code>onFocus</code> handler wouldn’t be called when we expected it to.</p>
+<p>To solve this problem, Vue provides a <code>$listeners</code> property containing an object of listeners being used on the component. For example:</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">{</span><br><span class="line">  focus: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>{ <span class="comment">/* ... */</span> }</span><br><span class="line">  input: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>{ <span class="comment">/* ... */</span> },</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>Using the <code>$listeners</code> property, you can forward all event listeners on the component to a specific child element with <code>v-on="$listeners"</code>. For elements like <code>&lt;input&gt;</code>, that you also want to work with <code>v-model</code>, it’s often useful to create a new computed property for listeners, like <code>inputListeners</code> below:</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'base-input'</span>, {</span><br><span class="line">  inheritAttrs: <span class="literal">false</span>,</span><br><span class="line">  props: [<span class="string">'label'</span>, <span class="string">'value'</span>],</span><br><span class="line">  computed: {</span><br><span class="line">    inputListeners: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">      <span class="keyword">var</span> vm = <span class="keyword">this</span></span><br><span class="line">      <span class="comment">// `Object.assign` merges objects together to form a new object</span></span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Object</span>.assign({},</span><br><span class="line">        <span class="comment">// We add all the listeners from the parent</span></span><br><span class="line">        <span class="keyword">this</span>.$listeners,</span><br><span class="line">        <span class="comment">// Then we can add custom listeners or override the</span></span><br><span class="line">        <span class="comment">// behavior of some listeners.</span></span><br><span class="line">        {</span><br><span class="line">          <span class="comment">// This ensures that the component works with v-model</span></span><br><span class="line">          input: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>{</span><br><span class="line">            vm.$emit(<span class="string">'input'</span>, event.target.value)</span><br><span class="line">          }</span><br><span class="line">        }</span><br><span class="line">      )</span><br><span class="line">    }</span><br><span class="line">  },</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;label&gt;</span></span><br><span class="line"><span class="string">      {{ label }}</span></span><br><span class="line"><span class="string">      &lt;input</span></span><br><span class="line"><span class="string">        v-bind="$attrs"</span></span><br><span class="line"><span class="string">        v-bind:value="value"</span></span><br><span class="line"><span class="string">        v-on="inputListeners"</span></span><br><span class="line"><span class="string">      &gt;</span></span><br><span class="line"><span class="string">    &lt;/label&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<p>Now the <code>&lt;base-input&gt;</code> component is a <strong>fully transparent wrapper</strong>, meaning it can be used exactly like a normal <code>&lt;input&gt;</code> element: all the same attributes and listeners will work, without the <code>.native</code> modifier.</p>
+<a class="dashAnchor" name="//dash_ref_sync%2DModifier/Section/.sync%20Modifier/0"></a><h2 id="sync-Modifier"><a href="#sync-Modifier" class="headerlink" title=".sync Modifier" data-scroll=""><code>.sync</code> Modifier</a></h2><blockquote>
+<p>New in 2.3.0+</p>
+</blockquote>
+<p>In some cases, we may need “two-way binding” for a prop. Unfortunately, true two-way binding can create maintenance issues, because child components can mutate the parent without the source of that mutation being obvious in both the parent and the child.</p>
+<p>That’s why instead, we recommend emitting events in the pattern of <code>update:myPropName</code>. For example, in a hypothetical component with a <code>title</code> prop, we could communicate the intent of assigning a new value with:</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$emit(<span class="string">'update:title'</span>, newTitle)</span><br></pre></td></tr></tbody></table></figure>
+<p>Then the parent can listen to that event and update a local data property, if it wants to. For example:</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:title</span>=<span class="string">"doc.title"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:update:title</span>=<span class="string">"doc.title = $event"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>For convenience, we offer a shorthand for this pattern with the <code>.sync</code> modifier:</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span> <span class="attr">v-bind:title.sync</span>=<span class="string">"doc.title"</span>&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p class="tip">Note that <code>v-bind</code> with the <code>.sync</code> modifier does <strong>not</strong> work with expressions (e.g. <code>v-bind:title.sync=”doc.title + ‘!’”</code> is invalid). Instead, you must only provide the name of the property you want to bind, similar to <code>v-model</code>.</p>
+
+<p>The <code>.sync</code> modifier can also be used with <code>v-bind</code> when using an object to set multiple props at once:</p>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span> <span class="attr">v-bind.sync</span>=<span class="string">"doc"</span>&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>This passes each property in the <code>doc</code> object (e.g. <code>title</code>) as an individual prop, then adds <code>v-on</code> update listeners for each one.</p>
+<p class="tip">Using <code>v-bind.sync</code> with a literal object, such as in <code>v-bind.sync=”{ title: doc.title }”</code>, will not work, because there are too many edge cases to consider in parsing a complex expression like this.</p>
+
+  
+  
+    <div class="guide-links">
+      
+      
+        <span>← <a href="components-props.html">Props</a></span>
+      
+      
+      
+        <span style="float: right;"><a href="components-slots.html">Slots</a> →</span>
+      
+    </div>
+  
+  <div class="footer">
+      <script src="../../../m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+    Caught a mistake or want to contribute to the documentation?
+    <a href="https://github.com/vuejs/vuejs.org/blob/master/src/v2/guide/components-custom-events.md" target="_blank">
+      Edit this page on GitHub!
+    </a>
+  </div>
+</div>
+
+        
+      </div>
+      <script src="../../js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="../../js/css.escape.js"></script>
+    <script src="../../js/common.js"></script>
+
+    <!-- search -->
+    <link href="../../../cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../css/search.css">
+    <script src="../../../cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script>
+    [
+      '#search-query-nav',
+      '#search-query-sidebar',
+      '#search-query-menu'
+    ].forEach(function (selector) {
+      if (!document.querySelector(selector)) return
+      // search index defaults to v2
+      var match = window.location.pathname.match(/^\/(v\d+)/)
+      var version = match ? match[1] : 'v2'
+      docsearch({
+      appId: 'BH4D9OD16A',
+      apiKey: '85cc3221c9f23bfbaa4e3913dd7625ea',
+      indexName: 'vuejs',
+      inputSelector: selector,
+      algoliaOptions: { facetFilters: ["version:" + version] }
+      })
+    })
+    </script>
+
+    <!-- fastclick -->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  
+
+<!-- Mirrored from vuejs.org/v2/guide/components-custom-events.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 13 Dec 2018 16:41:03 GMT -->
+
+</body></html>
