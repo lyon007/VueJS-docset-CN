@@ -1,12 +1,10 @@
 {
-  "name": "Dash-ThinkJS",
+  "name": "vuejs-docset-cn",
   "version": "0.0.1",
-  "description": "ThinkJS Dash Documentation",
+  "description": "VueJS Dash Documentation",
   "main": "build.js",
   "scripts": {
-    "start": "npm run compile-cn",
-    "compile-cn": "node build.js zh-CN",
-    "compile-en": "node build.js en"
+    "build": "node build-vue.js"
   },
   "dependencies": {
     "cheerio": "^0.22.0",
@@ -14,12 +12,12 @@
     "sync-exec": "^0.6.2"
   },
   "keywords": [
-    "ThinkJS",
+    "VueJS",
+    "VueJS-CN",
     "Dash",
     "Node",
     "Docset",
     "Documentation"
   ],
-  "author": "lizheming",
   "license": "ISC"
 }
