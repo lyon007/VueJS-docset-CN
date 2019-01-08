@@ -13,7 +13,7 @@
 
 Dash所需的文档都是`.docSet`后缀的文件，其实docSet文件就是一个文件夹而已，里头包含最终的html文档，以及根据html建立的索引（索引放在sqlite数据库中）。
 
-生成文档的方法有很多种，如 [Python](<https://github.com/drbraden/pgdash>.)、[Ruby](https://github.com/Kapeli/erlang-docset/blob/master/src/generate.rb)、[Objective-C](https://github.com/Kapeli/javadocset)、[Node.js](https://github.com/exlee/d3-dash-gen)、[PHP](https://github.com/akirk/dash-phpunit)
+生成文档的方法有很多种，如 [Python](https://github.com/drbraden/pgdash)、[Ruby](https://github.com/Kapeli/erlang-docset/blob/master/src/generate.rb)、[Objective-C](https://github.com/Kapeli/javadocset)、[Node.js](https://github.com/exlee/d3-dash-gen)、[PHP](https://github.com/akirk/dash-phpunit)
 
 可以选择 **镜像时处理**，也可以**镜像后处理**。只需要结果中包含html，以及sqlite 就OJBK。
 
@@ -27,7 +27,7 @@ Dash所需的文档都是`.docSet`后缀的文件，其实docSet文件就是一�
 - `sqlite-sync`  做一些 sqlite  操作
 - `cheerio`  服务器版的jQuery
 
-z
+
 
 ### 主要步骤：
 
@@ -316,12 +316,12 @@ function handleTitles($,relativePath,dir) {
 
 ## 截图
 
-<img width='450px' style='width:450px;height:300px' src="./截图/01.png">
+<img  src="./截图/01.png">
 
-<img width='450px' style='width:450px;height:300px' src="./截图/02.png"/>
+<img  src="./截图/02.png"/>
 
-<img width='450px' style='width:450px;height:300px' src="./截图/03.png"/>
+<img  src="./截图/03.png"/>
 
-<img width='450px' style='width:450px;height:300px' src="./截图/04.png"/>
+<img  src="./截图/04.png"/>
 
 
