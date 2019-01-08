@@ -88,9 +88,9 @@ z
 对比后选择用官方的外部资源，文档内容则用自己镜像的
 
 <div>
-	<img  src="./截图/vue-dir.png" style='width:33%;height:450px;float:left;'>
-	<img  src="./截图/vue-cn-dir2.png" style='width:33%;height:450px;float:right;'>
-    <img  src="./截图/vue-cn-dir-result.png" style='width:33%;height:450px;float:left;'>
+	<img width='33%' src="./截图/vue-dir.png" style='width:33%;height:450px;float:left;'>
+	<img width='33%' src="./截图/vue-cn-dir2.png" style='width:33%;height:450px;float:right;'>
+    <img width='33%' src="./截图/vue-cn-dir-result.png" style='width:33%;height:450px;float:left;'>
 </div>
 
 - 左侧为dash官方文档中的资源 、中间为合并后的资源（后面要用到）、 右侧为自己镜像的资源
@@ -316,12 +316,12 @@ function handleTitles($,relativePath,dir) {
 
 ## 截图
 
-<img  src="./截图/01.png" style='width:450px;height:300px'>
+<img width='450px' style='width:450px;height:300px' src="./截图/01.png">
 
-<img style='width:450px;height:300px' src="./截图/02.png"/>
+<img width='450px' style='width:450px;height:300px' src="./截图/02.png"/>
 
-<img style='width:450px;height:300px' src="./截图/03.png"/>
+<img width='450px' style='width:450px;height:300px' src="./截图/03.png"/>
 
-<img style='width:450px;height:300px' src="./截图/04.png"/>
+<img width='450px' style='width:450px;height:300px' src="./截图/04.png"/>
 
 
