@@ -1,0 +1,566 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>避免内存泄漏 — Vue.js</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/cookbook/avoiding-memory-leaks.html">
+    <link rel="alternate" hreflang="zh" href="avoiding-memory-leaks.html">
+    <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/cookbook/avoiding-memory-leaks.html">
+    <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/cookbook/avoiding-memory-leaks.html">
+    <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/cookbook/avoiding-memory-leaks.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/cookbook/avoiding-memory-leaks.html">
+    <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/cookbook/avoiding-memory-leaks.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="避免内存泄漏 — Vue.js">
+    <meta property="og:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta property="og:image" content="https://cn.vuejs.org//images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="避免内存泄漏 — Vue.js">
+    <meta name="twitter:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="twitter:image" content="https://cn.vuejs.org/images/logo.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="../../images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../../images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/icons/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+    <link rel="icon" href="../../images/logo.png" type="image/png">
+
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <link rel="manifest" href="../../manifest.json">
+
+    <!-- <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'> -->
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="../../css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script src="../../js/vue.js"></script>
+    <script>
+      Vue.config.productionTip = false
+      window.PAGE_TYPE = "cookbook"
+    </script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46852172-3', 'cn.vuejs.org');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body class="docs">
+    <div id="mobile-bar" >
+      <a class="menu-button"></a>
+      <a class="logo" href="../../index.html"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="../../index.html">
+    <img src="../../images/logo.png" alt="vue logo">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="../guide/index.html" class="nav-link">教程</a></li>
+      <li><a href="../api/index.html" class="nav-link">API</a></li>
+      <li><a href="../style-guide/index.html" class="nav-link">风格指南</a></li>
+      <li><a href="../examples/index.html" class="nav-link">示例</a></li>
+      <li><a href="index.html" class="nav-link current">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">生态系统</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>帮助</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">论坛</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">聊天室</a></li>
+      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">聚会</a></li>
+    </ul></li>
+    <li><h4>工具</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>核心插件</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue 服务端渲染</a></li>
+    </ul></li>
+    <li><h4>信息</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">周刊</a></li>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">博客</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">工作</a></li>
+    </ul></li>
+    <li><h4>资源列表</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">官方仓库</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue 优选</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue 资源</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="../guide/team.html" class="nav-link team">团队</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="../../support-vuejs/index.html" class="nav-link">支持 Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="../../support-vuejs/index.html#One-time-Donations" class="nav-link">一次性赞助</a></li>
+      <li><a href="../../support-vuejs/index.html#Recurring-Pledges" class="nav-link">周期性赞助</a></li>
+      <li><a href="https://www.smallsticker.com/%E8%B4%B4%E7%BA%B8/vue.html" class="nav-link">贴纸</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">T 恤商店</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">多语言</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+<li><a href="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">参与翻译</a></li>
+
+  </ul>
+</div>
+
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">学习</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="../guide/index.html" class="nav-link">教程</a></li>
+      <li><a href="../api/index.html" class="nav-link">API</a></li>
+      <li><a href="../style-guide/index.html" class="nav-link">风格指南</a></li>
+      <li><a href="../examples/index.html" class="nav-link">示例</a></li>
+      <li><a href="index.html" class="nav-link current">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">生态系统</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>帮助</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">论坛</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">聊天室</a></li>
+      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">聚会</a></li>
+    </ul></li>
+    <li><h4>工具</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>核心插件</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue 服务端渲染</a></li>
+    </ul></li>
+    <li><h4>信息</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">周刊</a></li>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">博客</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">工作</a></li>
+    </ul></li>
+    <li><h4>资源列表</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">官方仓库</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue 优选</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue 资源</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="../guide/team.html" class="nav-link team">团队</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="../../support-vuejs/index.html" class="nav-link">支持 Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="../../support-vuejs/index.html#One-time-Donations" class="nav-link">一次性赞助</a></li>
+      <li><a href="../../support-vuejs/index.html#Recurring-Pledges" class="nav-link">周期性赞助</a></li>
+      <li><a href="https://www.smallsticker.com/%E8%B4%B4%E7%BA%B8/vue.html" class="nav-link">贴纸</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">T 恤商店</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">多语言</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://jp.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+<li><a href="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">参与翻译</a></li>
+
+    </ul>
+    <div class="list">
+      <div id="sidebar-sponsors-special">
+  <div class="main-sponsor">
+    <span>特别赞助商</span>
+    <div>
+      <a href="http://www.dcloud.io/?hmsr=vuejsorg&hmpl=&hmcu=&hmkw=&hmci=" target="_blank" class="logo">
+      <img src="../../images/dcloud.gif" alt="">
+    </a>
+    </div>
+  </div>
+</div>
+
+<!--
+<div id="sidebar-sponsors-platinum-left">
+  <div class="main-sponsor">
+    <span>白金赞助商</span>
+    <div>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png" alt="">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png" alt="tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png" alt="vue school">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="/images/vehikl.png" alt="vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="/images/nativescript.png" alt="nativescript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    成为赞助者
+  </a>
+</div>
+
+-->
+
+      
+        <h2>
+          
+          Cookbook<sup class="beta">beta</sup>
+          
+        </h2>
+        <ul class="menu-root">
+  
+    
+    
+    <li>
+      <a href="index.html" class="sidebar-link">介绍</a>
+    </li>
+  
+    
+    
+    <li>
+      <a href="adding-instance-properties.html" class="sidebar-link">添加实例属性</a>
+    </li>
+  
+    
+    
+    <li>
+      <a href="form-validation.html" class="sidebar-link">表单校验</a>
+    </li>
+  
+    
+    
+    <li>
+      <a href="editable-svg-icons.html" class="sidebar-link">可编辑的 SVG 图标系统</a>
+    </li>
+  
+    
+    
+    <li>
+      <a href="serverless-blog.html" class="sidebar-link">创建一个基于 CMS 的博客</a>
+    </li>
+  
+    
+    
+    <li>
+      <a href="unit-testing-vue-components.html" class="sidebar-link">Vue 组件的单元测试</a>
+    </li>
+  
+    
+    
+    <li>
+      <a href="creating-custom-scroll-directives.html" class="sidebar-link">创建自定义滚动指令</a>
+    </li>
+  
+    
+    
+    <li>
+      <a href="debugging-in-vscode.html" class="sidebar-link">在 VS Code 中调试</a>
+    </li>
+  
+    
+    
+    <li>
+      <a href="using-axios-to-consume-apis.html" class="sidebar-link">使用 axios 访问 API</a>
+    </li>
+  
+    
+    
+    <li>
+      <a href="avoiding-memory-leaks.html" class="sidebar-link current">避免内存泄漏</a>
+    </li>
+  
+    
+    
+    <li>
+      <a href="client-side-storage.html" class="sidebar-link">客户端存储</a>
+    </li>
+  
+    
+    
+    <li>
+      <a href="packaging-sfc-for-npm.html" class="sidebar-link">Packaging Vue Components for npm</a>
+    </li>
+  
+    
+    
+    <li>
+      <a href="dockerize-vuejs-app.html" class="sidebar-link">Dockerize Vue.js App</a>
+    </li>
+  
+    
+    
+    <li>
+      <a href="practical-use-of-scoped-slots.html" class="sidebar-link">Practical use of scoped slots with GoogleMaps</a>
+    </li>
+  
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+<!--
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>白金赞助商</span>
+    <div>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png" alt="">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png" alt="tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png" alt="vue school">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="/images/vehikl.png" alt="vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="/images/nativescript.png" alt="nativescript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    成为赞助者
+  </a>
+</div>
+
+-->
+
+
+<div class="content cookbook with-sidebar ">
+  
+    
+      <div id="ad">
+  <!-- <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
+  </script> -->
+  <a href="https://studio.qcloud.coding.net/campaign/favorite-plugins/?utm_source=vue.js&utm_content=ad1116" target="_blank">
+    <img src="../../images/coding-net-ad.jpg">
+  </a>
+</div>
+
+    
+  
+  
+    <h1>避免内存泄漏</h1>
+  
+
+  <div class="ad-pagetop">
+  <a href="http://www.tp-shop.cn/index.php?http_referer=vuejs" target="_blank" rel="noopener noreferrer">
+    <span class="name">TPshop</span>
+    <span class="description">中国开源商城系统 - 开源学习系统</span>
+    <span class="action">立即查看 &gt;</span>
+  </a>
+</div>
+
+
+  
+    <h2 id="简介"><a href="avoiding-memory-leaks.html#%E7%AE%80%E4%BB%8B" class="headerlink" title="简介"></a>简介</h2><p>如果你在用 Vue 开发应用，那么就要当心内存泄漏的问题。这个问题在单页应用 (SPA) 中尤为重要，因为在 SPA 的设计中，用户使用它时是不需要刷新浏览器的，所以 JavaScript 应用需要自行清理组件来确保垃圾回收以预期的方式生效。</p>
+<p>内存泄漏在 Vue 应用中通常不是来自 Vue 自身的，更多地发生于把其它库集成到应用中的时候。</p>
+<h2 id="基本的示例"><a href="avoiding-memory-leaks.html#%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%A4%BA%E4%BE%8B" class="headerlink" title="基本的示例"></a>基本的示例</h2><p>接下来的示例展示了一个由于在一个 Vue 组件中使用 <a href="https://github.com/jshjohnson/Choices" target="_blank" rel="noopener">Choices.js</a> 库而没有将其及时清除导致的内存泄漏。等一下我们再交代如何移除这个 Choices.js 的足迹进而避免内存泄漏。</p>
+<p>下面的示例中，我们加载了一个带有非常多选项的选择框，然后我们用到了一个显示/隐藏按钮，通过一个 <a href="../guide/conditional.html">v-if</a> 指令从虚拟 DOM 中添加或移除它。这个示例的问题在于这个 <code>v-if</code> 指令会从 DOM 中移除父级元素，但是我们并没有清除由 Choices.js 新添加的 DOM 片段，从而导致了内存泄漏。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet prefetch"</span> <span class="attr">href</span>=<span class="string">"https://joshuajohnson.co.uk/Choices/assets/styles/css/choices.min.css?version=3.0.3"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://joshuajohnson.co.uk/Choices/assets/scripts/dist/choices.min.js?version=3.0.3"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-if</span>=<span class="string">"showChoices"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">click</span>=<span class="string">"hide"</span></span></span><br><span class="line"><span class="tag">  &gt;</span>Hide<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-if</span>=<span class="string">"!showChoices"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">click</span>=<span class="string">"show"</span></span></span><br><span class="line"><span class="tag">  &gt;</span>Show<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"showChoices"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"choices-single-default"</span>&gt;</span><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">"#app"</span>,</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      showChoices: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.initializeChoices()</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    initializeChoices: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">let</span> list = []</span><br><span class="line">      <span class="comment">// 我们来为选择框载入很多选项</span></span><br><span class="line">      <span class="comment">// 这样的话它会占用大量的内存</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">        list.push(&#123;</span><br><span class="line">          label: <span class="string">"Item "</span> + i,</span><br><span class="line">          value: i</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">new</span> Choices(<span class="string">"#choices-single-default"</span>, &#123;</span><br><span class="line">        searchEnabled: <span class="literal">true</span>,</span><br><span class="line">        removeItemButton: <span class="literal">true</span>,</span><br><span class="line">        choices: list</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    show: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.showChoices = <span class="literal">true</span></span><br><span class="line">      <span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.initializeChoices()</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    hide: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.showChoices = <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>为了实际观察一下这个内存泄露，请使用 Chrome 打开这个 <a href="https://codepen.io/freeman-g/pen/qobpxo" target="_blank" rel="noopener">CodePen 示例</a>然后打开 Chrome 的任务管理器。Mac 下打开 Chrome 任务管理器的方式是选择 Chrome 顶部导航 &gt; 窗口 &gt; 任务管理；在 Windows 上则是 Shift+Esc 快捷键。现在点击展示/隐藏按钮 50 次左右。你应该在 Chrome 任务管理中发现内存的使用在增加并且从未被回收。</p>
+<p><img src="../../images/memory-leak-example.png" alt="内存泄漏示例"></p>
+<h2 id="解决这个内存泄漏问题"><a href="avoiding-memory-leaks.html#%E8%A7%A3%E5%86%B3%E8%BF%99%E4%B8%AA%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98" class="headerlink" title="解决这个内存泄漏问题"></a>解决这个内存泄漏问题</h2><p>在上述的示例中，我们可以用 <code>hide()</code> 方法在将选择框从 DOM 中移除之前做一些清理工作，来解决内存泄露问题。为了做到这一点，我们会在 Vue 实例的数据对象中保留一个属性，并会使用 <a href="https://github.com/jshjohnson/Choices" target="_blank" rel="noopener">Choices API 中的</a> <code>destroy()</code> 方法将其清除。</p>
+<p>通过这个<a href="https://codepen.io/freeman-g/pen/mxWMor" target="_blank" rel="noopener">更新之后的 CodePen 示例</a>可以再重新看看内存的使用情况。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">"#app"</span>,</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      showChoices: <span class="literal">true</span>,</span><br><span class="line">      choicesSelect: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.initializeChoices()</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    initializeChoices: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">let</span> list = []</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">        list.push(&#123;</span><br><span class="line">          label: <span class="string">"Item "</span> + i,</span><br><span class="line">          value: i</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 在我们的 Vue 实例的数据对象中设置一个 `choicesSelect` 的引用</span></span><br><span class="line">      <span class="keyword">this</span>.choicesSelect = <span class="keyword">new</span> Choices(<span class="string">"#choices-single-default"</span>, &#123;</span><br><span class="line">        searchEnabled: <span class="literal">true</span>,</span><br><span class="line">        removeItemButton: <span class="literal">true</span>,</span><br><span class="line">        choices: list</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    show: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.showChoices = <span class="literal">true</span></span><br><span class="line">      <span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.initializeChoices()</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    hide: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 现在我们可以让 Choices 使用这个引用</span></span><br><span class="line">      <span class="comment">// 在从 DOM 中移除这些元素之前进行清理工作</span></span><br><span class="line">      <span class="keyword">this</span>.choicesSelect.destroy()</span><br><span class="line">      <span class="keyword">this</span>.showChoices = <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="这样做的价值"><a href="avoiding-memory-leaks.html#%E8%BF%99%E6%A0%B7%E5%81%9A%E7%9A%84%E4%BB%B7%E5%80%BC" class="headerlink" title="这样做的价值"></a>这样做的价值</h2><p>内存管理和性能测试在快速交付的时候是很容易被忽视的，然而，保持小内存开销仍然对整体的用户体验非常重要。</p>
+<p>考虑一下你的用户使用的设备类型，以及他们通常情况下的使用方式。他们使用的是内存很有限的上网本或移动设备吗？你的用户通常会做很多应用内的导航吗？如果其中之一是的话，那么良好的内存管理实践会帮助你避免糟糕的浏览器崩溃的场景。即便都不是，因为一个不小心，你的应用在经过持续的使用之后，仍然有潜在的性能恶化的问题。</p>
+<h2 id="实际的例子"><a href="avoiding-memory-leaks.html#%E5%AE%9E%E9%99%85%E7%9A%84%E4%BE%8B%E5%AD%90" class="headerlink" title="实际的例子"></a>实际的例子</h2><p>在上述示例中，我们使用了一个 <code>v-if</code> 指令产生内存泄漏，但是一个更常见的实际的场景是使用 <a href="https://router.vuejs.org/" target="_blank" rel="noopener">Vue Router</a> 在一个单页应用中路由到不同的组件。</p>
+<p>就像这个 <code>v-if</code> 指令一样，当一个用户在你的应用中导航时，Vue Router 从虚拟 DOM 中移除了元素，并替换为了新的元素。Vue 的 <code>beforeDestroy()</code> <a href="../guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA">生命周期钩子</a>是一个解决基于 Vue Router 的应用中的这类问题的好地方。</p>
+<p>我们可以将清理工作放入 <code>beforeDestroy()</code> 钩子，像这样：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">beforeDestroy: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.choicesSelect.destroy()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="替代方案"><a href="avoiding-memory-leaks.html#%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88" class="headerlink" title="替代方案"></a>替代方案</h2><p>我们已经讨论了移除元素时的内存管理，但是如果你打算在内存中保留状态和元素该怎么做呢？这种情况下，你可以使用内建的 <a href="../api/index.html#keep-alive">keep-alive</a> 组件。</p>
+<p>当你用 <code>keep-alive</code> 包裹一个组件后，它的状态就会保留，因此就留在了内存里。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"show = false"</span>&gt;</span>Hide<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- `&lt;my-component&gt;` 即便被删除仍会刻意保留在内存里 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-if</span>=<span class="string">"show"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这个技巧可以用来提升用户体验。例如，设想一个用户在一个文本框中输入了评论，之后决定导航离开。如果这个用户之后导航回来，那些评论应该还保留着。</p>
+<p>一旦你使用了 <code>keep-alive</code>，那么你就可以访问另外两个生命周期钩子：<code>activated</code> 和 <code>deactivated</code>。如果你想要在一个 <code>keep-alive</code> 组件被移除的时候进行清理或改变数据，可以使用 <code>deactivated</code> 钩子。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">deactivated: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 移除任何你不想保留的数据</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="avoiding-memory-leaks.html#%E6%80%BB%E7%BB%93" class="headerlink" title="总结"></a>总结</h2><p>Vue 让开发非常棒的响应式的 JavaScript 应用程序变得非常简单，但是你仍然需要警惕内存泄漏。这些内存泄漏往往会发生在使用 Vue 之外的其它进行 DOM 操作的三方库时。请确保测试应用的内存泄漏问题并在适当的时机做必要的组件清理。</p>
+
+  
+  
+  <div class="footer">
+      <script src="https://m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+    发现错误？想参与编辑？
+    <a href="https://github.com/vuejs/cn.vuejs.org/blob/master/src/v2/cookbook/avoiding-memory-leaks.md" target="_blank">
+      在 GitHub 上编辑此页！
+    </a>
+  </div>
+</div>
+
+        
+      </div>
+      <script src="../../js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="../../js/css.escape.js"></script>
+    <script src="../../js/common.js"></script>
+
+    <!-- search -->
+    <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../css/search.css">
+    <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script>
+    [
+      '#search-query-nav',
+      '#search-query-sidebar',
+      '#search-query-menu'
+    ].forEach(function (selector) {
+      if (!document.querySelector(selector)) return
+      // search index defaults to v2
+      var match = window.location.pathname.match(/^\/(v\d+)/)
+      var version = match ? match[1] : 'v2'
+      docsearch({
+      appId: 'BH4D9OD16A',
+      apiKey: '5638280abff9d207417bb03be05f0b25',
+      indexName: 'vuejs_cn2',
+      inputSelector: selector,
+      algoliaOptions: { facetFilters: ["version:" + version] }
+      })
+    })
+    </script>
+
+    <!-- fastclick -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  </body>
+</html>

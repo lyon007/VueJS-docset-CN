@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+.codepen.io	TRUE	/	FALSE	1999999999	__cfduid	d99a820e96f8f9e655b738bad7d37183d1544719195
+.opencollective.com	TRUE	/	FALSE	1999999999	__cfduid	da8df8f0b034474f48d8e837b667201591544719252
+
