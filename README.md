@@ -1,9 +1,9 @@
 # VueJS-docset-CN
 - Vue.docset  dash 文档  Vue文档中文版 
-- 取自官方 https://cn.vuejs.org (Version：**2.5**)
-
-- 持续更新
-- 后续优化后提供制作过程
+- 取自官方 https://cn.vuejs.org (Version：**2.6.11**)
+## 任务列表
+- [x] 持续更新
+- [x] 提供制作过程 
 
 ## 用法
  - Mac下用户下载 Dash 使用文档

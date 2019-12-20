@@ -1,12 +1,13 @@
 
 
+
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+  <head><meta name="generator" content="Hexo 3.8.0">
     <title>加入 Vue.js 社区 — Vue.js</title>
     <meta charset="utf-8">
     <meta name="description" content="Vue.js - The Progressive JavaScript Framework">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/join.html">
     <link rel="alternate" hreflang="zh" href="join.html">
@@ -35,7 +36,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="../../images/icons/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="../../images/icons/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../../images/icons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="../../images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../images/icons/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../../images/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="../../images/icons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../../images/icons/favicon-16x16.png">
@@ -48,16 +49,23 @@
     <meta name="msapplication-config" content="browserconfig.xml">
     <link rel="manifest" href="../../manifest.json">
 
+    <!-- <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin> -->
+    <!-- <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin> -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin> -->
+
     <!-- <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
     <!-- <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'> -->
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://code.bdstatic.com/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- main page styles -->
     <link rel="stylesheet" href="../../css/page.css">
 
     <!-- this needs to be loaded before guide's inline scripts -->
     <script src="../../js/vue.js"></script>
+
+    
+
     <script>
       Vue.config.productionTip = false
       window.PAGE_TYPE = "guide"
@@ -68,14 +76,14 @@
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
       ga('create', 'UA-46852172-3', 'cn.vuejs.org');
       ga('send', 'pageview');
     </script>
   </head>
   <body class="docs">
-    <div id="mobile-bar" >
+    <div id="mobile-bar">
       <a class="menu-button"></a>
       <a class="logo" href="../../index.html"></a>
     </div>
@@ -87,19 +95,30 @@
   <ul id="nav">
     <li>
   <form id="search-form">
-    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input" aria-label="搜索">
   </form>
 </li>
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">学习</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="index.html" class="nav-link current">教程</a></li>
-      <li><a href="../api/index.html" class="nav-link">API</a></li>
-      <li><a href="../style-guide/index.html" class="nav-link">风格指南</a></li>
-      <li><a href="../examples/index.html" class="nav-link">示例</a></li>
-      <li><a href="../cookbook/index.html" class="nav-link">Cookbook</a></li>
-    </ul></li>
+    <li><h4>文档</h4></li>
+    <li>
+      <ul>
+        <li><a href="index.html" class="nav-link current">教程</a></li>
+        <li><a href="../api/index.html" class="nav-link">API</a></li>
+        <li><a href="../style-guide/index.html" class="nav-link">风格指南</a></li>
+        <li><a href="../examples/index.html" class="nav-link">示例</a></li>
+        <li><a href="../cookbook/index.html" class="nav-link">Cookbook</a></li>
+      </ul>
+    </li>
+    <li><h4>视频教程</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank" rel="sponsored noopener">Vue Mastery (英文)</a></li>
+        <li><a href="https://vueschool.io/?friend=vuejs&amp;utm_source=Vuejs.org&amp;utm_medium=Link&amp;utm_content=Navbar%20Dropdown" class="nav-link" target="_blank" rel="noopener">Vue School (英文)</a></li>
+        <li><a href="https://learning.dcloud.io/" class="nav-link" target="_blank" rel="sponsored noopener">DCloud 视频教程</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -108,37 +127,32 @@
   <ul class="nav-dropdown">
     <li><h4>帮助</h4></li>
     <li><ul>
-      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">论坛</a></li>
-      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">聊天室</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">聚会</a></li>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank" rel="noopener">论坛</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank" rel="noopener">聊天室</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank" rel="noopener">聚会</a></li>
     </ul></li>
     <li><h4>工具</h4></li>
     <li>
       <ul>
-        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
-        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI</a></li>
-        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank" rel="noopener">Devtools</a></li>
+        <li><a href="https://cli.vuejs.org/zh/" class="nav-link" target="_blank" rel="noopener">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org/zh/" class="nav-link" target="_blank" rel="noopener">Vue Loader</a></li>
       </ul>
     </li>
     <li><h4>核心插件</h4></li>
     <li><ul>
-      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
-      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
-      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue 服务端渲染</a></li>
+      <li><a href="https://router.vuejs.org/zh/" class="nav-link" target="_blank" rel="noopener">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/zh/" class="nav-link" target="_blank" rel="noopener">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/zh/" class="nav-link" target="_blank" rel="noopener">Vue 服务端渲染</a></li>
     </ul></li>
     <li><h4>信息</h4></li>
     <li><ul>
-      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">周刊</a></li>
-      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
-      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
-      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">博客</a></li>
-      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">工作</a></li>
-    </ul></li>
-    <li><h4>资源列表</h4></li>
-    <li><ul>
-      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">官方仓库</a></li>
-      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue 优选</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue 资源</a></li>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank" rel="noopener">周刊</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank" rel="noopener">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank" rel="noopener">活动</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank" rel="noopener">博客</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank" rel="noopener">工作</a></li>
     </ul></li>
   </ul>
 </li>
@@ -146,28 +160,39 @@
 <li>
   <a href="team.html" class="nav-link team">团队</a>
 </li>
+<li class="nav-dropdown-container resources">
+  <a href="#" class="nav-link">资源列表</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="../../resources/partners.html" class="nav-link">合作伙伴</a></li>
+    <li><a href="../../resources/themes.html" class="nav-link">主题</a></li>
+    <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+  </ul>
+</li>
+
+<!-- <li>
+  <a href="/partners" class="nav-link ">Partners</a>
+</li> -->
 <li class="nav-dropdown-container support-vue">
   <a href="../../support-vuejs/index.html" class="nav-link">支持 Vue</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="../../support-vuejs/index.html#One-time-Donations" class="nav-link">一次性赞助</a></li>
-      <li><a href="../../support-vuejs/index.html#Recurring-Pledges" class="nav-link">周期性赞助</a></li>
-      <li><a href="https://www.smallsticker.com/%E8%B4%B4%E7%BA%B8/vue.html" class="nav-link">贴纸</a></li>
-      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">T 恤商店</a></li>
-    </ul></li>
+    <li><a href="../../support-vuejs/index.html#One-time-Donations" class="nav-link">一次性赞助</a></li>
+    <li><a href="../../support-vuejs/index.html#Recurring-Pledges" class="nav-link">周期性赞助</a></li>
+    <li><a href="https://www.smallsticker.com/%E8%B4%B4%E7%BA%B8/vue.html" rel="noopener" class="nav-link">贴纸</a></li>
+    <li><a href="https://osholic.com/?utm_source=vue&amp;utm_medium=dropdown" rel="noopener" class="nav-link">周边</a></li>
+    <li><a href="https://vue.threadless.com" target="_blank" rel="noopener" class="nav-link">T 恤商店</a></li>
   </ul>
 </li>
 
 <li class="nav-dropdown-container language">
   <a class="nav-link">多语言</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://vuejs.org/v2/guide/join.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://ru.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank">Русский</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+    <li><a href="https://vuejs.org/v2/guide/join.html" class="nav-link" target="_blank" rel="noopener">English</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank" rel="noopener">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank" rel="noopener">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank" rel="noopener">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank" rel="noopener">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank" rel="noopener">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank" rel="noopener">Tiếng Việt</a></li>
   </ul>
 </li>
 
@@ -180,129 +205,44 @@
       <div id="main" class="fix-sidebar">
         
           
-  <div class="sidebar">
+  
+
+<div class="sidebar">
   <div class="sidebar-inner">
-    <ul class="main-menu">
-      <li>
-  <form id="search-form">
-    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
-  </form>
-</li>
-<li class="nav-dropdown-container learn">
-  <a class="nav-link current">学习</a><span class="arrow"></span>
-  <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="index.html" class="nav-link current">教程</a></li>
-      <li><a href="../api/index.html" class="nav-link">API</a></li>
-      <li><a href="../style-guide/index.html" class="nav-link">风格指南</a></li>
-      <li><a href="../examples/index.html" class="nav-link">示例</a></li>
-      <li><a href="../cookbook/index.html" class="nav-link">Cookbook</a></li>
-    </ul></li>
-  </ul>
-</li>
-
-<li class="nav-dropdown-container ecosystem">
-  <a class="nav-link">生态系统</a><span class="arrow"></span>
-  <ul class="nav-dropdown">
-    <li><h4>帮助</h4></li>
-    <li><ul>
-      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">论坛</a></li>
-      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">聊天室</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">聚会</a></li>
-    </ul></li>
-    <li><h4>工具</h4></li>
-    <li>
-      <ul>
-        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
-        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI</a></li>
-        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
-      </ul>
-    </li>
-    <li><h4>核心插件</h4></li>
-    <li><ul>
-      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
-      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
-      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue 服务端渲染</a></li>
-    </ul></li>
-    <li><h4>信息</h4></li>
-    <li><ul>
-      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">周刊</a></li>
-      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
-      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
-      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">博客</a></li>
-      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">工作</a></li>
-    </ul></li>
-    <li><h4>资源列表</h4></li>
-    <li><ul>
-      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">官方仓库</a></li>
-      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue 优选</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue 资源</a></li>
-    </ul></li>
-  </ul>
-</li>
-
-<li>
-  <a href="team.html" class="nav-link team">团队</a>
-</li>
-<li class="nav-dropdown-container support-vue">
-  <a href="../../support-vuejs/index.html" class="nav-link">支持 Vue</a><span class="arrow"></span>
-  <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="../../support-vuejs/index.html#One-time-Donations" class="nav-link">一次性赞助</a></li>
-      <li><a href="../../support-vuejs/index.html#Recurring-Pledges" class="nav-link">周期性赞助</a></li>
-      <li><a href="https://www.smallsticker.com/%E8%B4%B4%E7%BA%B8/vue.html" class="nav-link">贴纸</a></li>
-      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">T 恤商店</a></li>
-    </ul></li>
-  </ul>
-</li>
-
-<li class="nav-dropdown-container language">
-  <a class="nav-link">多语言</a><span class="arrow"></span>
-  <ul class="nav-dropdown">
-    <li><a href="https://vuejs.org/v2/guide/join.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://ru.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank">Русский</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/join.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
-  </ul>
-</li>
-
-<li><a href="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">参与翻译</a></li>
-
-    </ul>
+    
     <div class="list">
       <div id="sidebar-sponsors-special">
   <div class="main-sponsor">
     <span>特别赞助商</span>
     <div>
-      <a href="http://www.dcloud.io/?hmsr=vuejsorg&hmpl=&hmcu=&hmkw=&hmci=" target="_blank" class="logo">
+    <a href="http://www.dcloud.io/?hmsr=vuejsorg&amp;hmpl=&amp;hmcu=&amp;hmkw=&amp;hmci=" target="_blank" rel="sponsored noopener" class="logo">
       <img src="../../images/dcloud.gif" alt="">
+    </a>
+    </div>
+    <div>
+    <a href="https://youzan.github.io/vant?source=vuejsorg" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="../../images/vant.png" alt="">
     </a>
     </div>
   </div>
 </div>
-
 <!--
+
 <div id="sidebar-sponsors-platinum-left">
   <div class="main-sponsor">
     <span>白金赞助商</span>
     <div>
-    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
-      <img src="/images/bit-wide.png" alt="">
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/vueschool.png" alt="VueSchool">
     </a>
-    <a href="http://tooltwist.com/" target="_blank" class="logo">
-      <img src="/images/tooltwist.png" alt="tooltwist">
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/vehikl.png" alt="Vehikl">
     </a>
-    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
-      <img src="/images/vueschool.png" alt="vue school">
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/nativescript.png" alt="NativeScript">
     </a>
-    <a href="https://vehikl.com/" target="_blank" class="logo">
-      <img src="/images/vehikl.png" alt="vehikl">
-    </a>
-    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
-      <img src="/images/nativescript.png" alt="nativescript">
+    <a href="https://retool.com/?utm_source=sponsor&utm_campaign=vue" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/retool.png" alt="Retool">
     </a>
     </div>
   </div>
@@ -310,6 +250,7 @@
     成为赞助者
   </a>
 </div>
+
 
 -->
 
@@ -735,22 +676,6 @@
       
     
     <li>
-      <a href="deployment.html" class="sidebar-link">生产环境部署</a>
-    </li>
-  
-    
-    
-      
-      
-      
-      
-      
-      
-      
-      
-      
-    
-    <li>
       <a href="single-file-components.html" class="sidebar-link">单文件组件</a>
     </li>
   
@@ -784,6 +709,22 @@
     
     <li>
       <a href="typescript.html" class="sidebar-link">TypeScript 支持</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="deployment.html" class="sidebar-link">生产环境部署</a>
     </li>
   
     
@@ -960,26 +901,23 @@
     </div>
   </div>
 </div>
-
 <!--
+
 <div id="sidebar-sponsors-platinum-right">
   <div class="main-sponsor">
     <span>白金赞助商</span>
     <div>
-    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
-      <img src="/images/bit-wide.png" alt="">
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/vueschool.png" alt="VueSchool">
     </a>
-    <a href="http://tooltwist.com/" target="_blank" class="logo">
-      <img src="/images/tooltwist.png" alt="tooltwist">
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/vehikl.png" alt="Vehikl">
     </a>
-    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
-      <img src="/images/vueschool.png" alt="vue school">
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/nativescript.png" alt="NativeScript">
     </a>
-    <a href="https://vehikl.com/" target="_blank" class="logo">
-      <img src="/images/vehikl.png" alt="vehikl">
-    </a>
-    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
-      <img src="/images/nativescript.png" alt="nativescript">
+    <a href="https://retool.com/?utm_source=sponsor&utm_campaign=vue" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/retool.png" alt="Retool">
     </a>
     </div>
   </div>
@@ -988,23 +926,30 @@
   </a>
 </div>
 
+
 -->
 
 
 <div class="content guide with-sidebar join-guide">
   
     
-      <div id="ad">
+      
+<div id="ad">
+  <span style="float: right;">广告</span>
+  <a href="https://time.geekbang.org/column/intro/216?code=mM%2FdqOPks0VQ7EkYGPNisoEpHDsb0ViHBXYa%2Fyg02k8%3D&amp;utm_term=SPoster" target="_blank" rel="sponsored noopener">
+    <img src="../../images/geekbang-ad.jpg">
+  </a>
+  <!-- <a href="https://ke.qq.com/course/392130?saleToken=992600&from=pclink" target="_blank" rel="sponsored noopener">
+    <img src="/images/tencent-ad.png">
+  </a> -->
   <!-- <script
     async
     type="text/javascript"
     src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
     id="_carbonads_js">
   </script> -->
-  <a href="https://studio.qcloud.coding.net/campaign/favorite-plugins/?utm_source=vue.js&utm_content=ad1116" target="_blank">
-    <img src="../../images/coding-net-ad.jpg">
-  </a>
 </div>
+
 
     
   
@@ -1015,7 +960,7 @@
   <div class="ad-pagetop">
   <a href="http://www.tp-shop.cn/index.php?http_referer=vuejs" target="_blank" rel="noopener noreferrer">
     <span class="name">TPshop</span>
-    <span class="description">中国开源商城系统 - 开源学习系统</span>
+    <span class="description">中国免费商城系统 - 搜豹商城系统 - 免费50小时Vue视频教程</span>
     <span class="action">立即查看 &gt;</span>
   </a>
 </div>
@@ -1024,18 +969,18 @@
   
     <p>Vue.js 的社区正在急速增长中，如果你正在阅读本文，这说明你大概已经准备好加入 Vue.js 社区了。欢迎！</p>
 <p>现在让我们来解答你能从社区中获得什么以及你能为社区做什么。</p>
-<h2 id="您将享有的资源"><a href="join.html#%E6%82%A8%E5%B0%86%E4%BA%AB%E6%9C%89%E7%9A%84%E8%B5%84%E6%BA%90" class="headerlink" title="您将享有的资源"></a>您将享有的资源</h2><h3 id="行为规范"><a href="join.html#%E8%A1%8C%E4%B8%BA%E8%A7%84%E8%8C%83" class="headerlink" title="行为规范"></a>行为规范</h3><p>这份<a href="../../coc/index.html">行为规范</a>是一个指南，它易于让我们所参与的技术社区更加繁荣。</p>
-<h3 id="获取帮助"><a href="join.html#%E8%8E%B7%E5%8F%96%E5%B8%AE%E5%8A%A9" class="headerlink" title="获取帮助"></a>获取帮助</h3><ul>
+<h2 id="您将享有的资源"><a href="#%E6%82%A8%E5%B0%86%E4%BA%AB%E6%9C%89%E7%9A%84%E8%B5%84%E6%BA%90" class="headerlink" title="您将享有的资源"></a>您将享有的资源</h2><h3 id="行为规范"><a href="#%E8%A1%8C%E4%B8%BA%E8%A7%84%E8%8C%83" class="headerlink" title="行为规范"></a>行为规范</h3><p>这份<a href="../../coc/index.html">行为规范</a>是一个指南，它易于让我们所参与的技术社区更加繁荣。</p>
+<h3 id="获取帮助"><a href="#%E8%8E%B7%E5%8F%96%E5%B8%AE%E5%8A%A9" class="headerlink" title="获取帮助"></a>获取帮助</h3><ul>
 <li><a href="https://forum.vuejs.org/" target="_blank" rel="noopener">论坛</a>：咨询与 Vue 及其生态的相关问题的最佳地点。</li>
 <li><a href="https://chat.vuejs.org/" target="_blank" rel="noopener">聊天室</a>：一个 Vue 开发者们相互认识和交流的实时聊天室。</li>
-<li><a href="https://www.vuemeetups.org" target="_blank" rel="noopener">Meetup</a>：想在当地找到像你一样的 Vue.js 爱好者吗？有兴趣成为社区领袖吗？这里就有你所需要的支持和帮助！</li>
+<li><a href="https://events.vuejs.org/meetups" target="_blank" rel="noopener">Meetup</a>：想在当地找到像你一样的 Vue.js 爱好者吗？有兴趣成为社区领袖吗？这里就有你所需要的支持和帮助！</li>
 <li><a href="https://github.com/vuejs" target="_blank" rel="noopener">GitHub</a>：如果你想报告 bug 或者提出新特性需求，欢迎来 GitHub 提交 issue。我们也非常欢迎 pull request！</li>
 </ul>
-<h3 id="探索生态"><a href="join.html#%E6%8E%A2%E7%B4%A2%E7%94%9F%E6%80%81" class="headerlink" title="探索生态"></a>探索生态</h3><ul>
+<h3 id="探索生态"><a href="#%E6%8E%A2%E7%B4%A2%E7%94%9F%E6%80%81" class="headerlink" title="探索生态"></a>探索生态</h3><ul>
 <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">Awesome Vue</a>：一览其他牛人发布的优秀资源。</li>
 <li><a href="https://forum.vuejs.org/c/show-and-tell" target="_blank" rel="noopener">“Show and Tell”子论坛</a>：又一个好地方，可以看看他人借助 Vue 生态完成的作品，以及他人为不断壮大的 Vue 生态的贡献。</li>
 </ul>
-<h2 id="您可以参与的方式"><a href="join.html#%E6%82%A8%E5%8F%AF%E4%BB%A5%E5%8F%82%E4%B8%8E%E7%9A%84%E6%96%B9%E5%BC%8F" class="headerlink" title="您可以参与的方式"></a>您可以参与的方式</h2><h3 id="贡献代码"><a href="join.html#%E8%B4%A1%E7%8C%AE%E4%BB%A3%E7%A0%81" class="headerlink" title="贡献代码"></a>贡献代码</h3><p>和所有的项目一样，贡献代码需要遵循规范。为了保证我们能尽快地帮助你解决问题或者接受你的 pull request，请先阅读这份<a href="https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md" target="_blank" rel="noopener">贡献指南</a>。</p>
+<h2 id="您可以参与的方式"><a href="#%E6%82%A8%E5%8F%AF%E4%BB%A5%E5%8F%82%E4%B8%8E%E7%9A%84%E6%96%B9%E5%BC%8F" class="headerlink" title="您可以参与的方式"></a>您可以参与的方式</h2><h3 id="贡献代码"><a href="#%E8%B4%A1%E7%8C%AE%E4%BB%A3%E7%A0%81" class="headerlink" title="贡献代码"></a>贡献代码</h3><p>和所有的项目一样，贡献代码需要遵循规范。为了保证我们能尽快地帮助你解决问题或者接受你的 pull request，请先阅读这份<a href="https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md" target="_blank" rel="noopener">贡献指南</a>。</p>
 <p>阅读之后，你应该已经准备好向 Vue 的核心仓库贡献代码了：</p>
 <ul>
 <li><a href="https://github.com/vuejs/vue" target="_blank" rel="noopener">vue</a>：核心库</li>
@@ -1043,21 +988,21 @@
 <li><a href="https://github.com/vuejs/vue-router" target="_blank" rel="noopener">vue-router</a>：为单页面应用提供的路由系统</li>
 </ul>
 <p>……还有许多小型的官方<a href="https://github.com/vuejs" target="_blank" rel="noopener">同伴库</a>。</p>
-<h3 id="分享-并积累-您的经验"><a href="join.html#%E5%88%86%E4%BA%AB-%E5%B9%B6%E7%A7%AF%E7%B4%AF-%E6%82%A8%E7%9A%84%E7%BB%8F%E9%AA%8C" class="headerlink" title="分享 (并积累) 您的经验"></a>分享 (并积累) 您的经验</h3><p>除了在论坛或聊天室回答问题、分享资源外，还有一些其它的方式可以分享并增长你的见识：</p>
+<h3 id="分享-并积累-您的经验"><a href="#%E5%88%86%E4%BA%AB-%E5%B9%B6%E7%A7%AF%E7%B4%AF-%E6%82%A8%E7%9A%84%E7%BB%8F%E9%AA%8C" class="headerlink" title="分享 (并积累) 您的经验"></a>分享 (并积累) 您的经验</h3><p>除了在论坛或聊天室回答问题、分享资源外，还有一些其它的方式可以分享并增长你的见识：</p>
 <ul>
 <li><strong>开发学习资料。</strong>我们常说，最好的学习方法就是教别人。如果你正在用 Vue 做一些有趣的事情，你可以写一篇博客、组织研讨会、甚至创建一个 gist 分享到社交平台上：这些都能加强你的专项知识。</li>
 <li><strong>关注 (watch) 你关心的仓库。</strong>这样无论何时该仓库有新的动静，你都会第一时间收到通知，得到关于正在进行的讨论以及即将到来的新特性的新鲜情报。这是超棒的积累专业知识的方法，你最终将会有能力来解决问题 (issue) 并提交 pull request。</li>
 </ul>
-<h3 id="翻译文档"><a href="join.html#%E7%BF%BB%E8%AF%91%E6%96%87%E6%A1%A3" class="headerlink" title="翻译文档"></a>翻译文档</h3><p>Vue 已经在全球范围内传播开来，核心团队成员甚至来自至少 6 个时区。<a href="https://forum.vuejs.org/" target="_blank" rel="noopener">论坛</a> 已有 7 种语言，数字还在持续增长。我们许多文档都有<a href="https://github.com/vuejs?utf8=%E2%9C%93&query=vuejs.org" target="_blank" rel="noopener">积极维护的翻译</a>。我们非常为 Vue 的国际影响力骄傲，但我们还能做得更好。</p>
+<h3 id="翻译文档"><a href="#%E7%BF%BB%E8%AF%91%E6%96%87%E6%A1%A3" class="headerlink" title="翻译文档"></a>翻译文档</h3><p>Vue 已经在全球范围内传播开来，核心团队成员甚至来自至少 6 个时区。<a href="https://forum.vuejs.org/" target="_blank" rel="noopener">论坛</a> 已有 7 种语言，数字还在持续增长。我们许多文档都有<a href="https://github.com/vuejs?utf8=%E2%9C%93&amp;query=vuejs.org" target="_blank" rel="noopener">积极维护的翻译</a>。我们非常为 Vue 的国际影响力骄傲，但我们还能做得更好。</p>
 <p>我希望现在你正在使用你的首选语言阅读这篇文档，如果不是，你愿意帮助我们翻译它吗？</p>
 <p>如果你愿意的话，请随时 fork <a href="https://github.com/vuejs/vuejs.org/" target="_blank" rel="noopener">这些文档</a>或者官方维护的其他文档的仓库，然后开始翻译吧。只要你取得了进展，就请在主仓库开一个 issue 或者 pull request，我们将号召更多的贡献者来进行帮助。</p>
-<h3 id="成为社区领袖"><a href="join.html#%E6%88%90%E4%B8%BA%E7%A4%BE%E5%8C%BA%E9%A2%86%E8%A2%96" class="headerlink" title="成为社区领袖"></a>成为社区领袖</h3><p>在社区中，你可以做很多事情来帮助 Vue 的发展：</p>
+<h3 id="成为社区领袖"><a href="#%E6%88%90%E4%B8%BA%E7%A4%BE%E5%8C%BA%E9%A2%86%E8%A2%96" class="headerlink" title="成为社区领袖"></a>成为社区领袖</h3><p>在社区中，你可以做很多事情来帮助 Vue 的发展：</p>
 <ul>
 <li><strong>参加当地的 meetup。</strong>不论是准备一个话题还是组织一个 workshop，你都可以通过帮助新老 Vue 开发者的发展来为社区带来很多价值。</li>
-<li><strong>自己组织 meetup。</strong>如果你所在的地方没有人组织 meetup，你可以自己组织起来！要善用 <a href="https://www.vuemeetups.org/resources/#introduction" target="_blank" rel="noopener">vuemeetups.org 的资源</a>！</li>
+<li><strong>自己组织 meetup。</strong>如果你所在的地方没有人组织 meetup，你可以自己组织起来！要善用 <a href="https://events.vuejs.org/resources/#getting-started" target="_blank" rel="noopener">events.vuejs.org 的资源</a>！</li>
 <li><strong>帮助 meetup 组织者。</strong>在举办活动时，帮助永远不嫌多，所以请帮助当地组织者让每个活动都能够成功举办。</li>
 </ul>
-<p>对于如何参与当地的 Vue 社区，如果你有任何问题，请联系 <a href="mailto:hello@vuemeetups.org" target="_blank" rel="noopener">hello@vuemeetups.org</a> 或 <a href="https://www.twitter.com/vuemeetups" target="_blank" rel="noopener">@VueMeetups</a>！</p>
+<p>对于如何参与当地的 Vue 社区，如果你有任何问题，请联系 <a href="https://www.twitter.com/vuejs_events" target="_blank" rel="noopener">@Vuejs_Events</a>！</p>
 
   
   
@@ -1074,21 +1019,19 @@
   
   <div class="footer">
       <script src="https://m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
-<div class="bsa-cpc"></div>
+<div id="bsa-native"></div>
 <script>
-  (function(){
-    if(typeof _bsa !== 'undefined' && _bsa) {
-    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
-      target: '.bsa-cpc',
-      align: 'horizontal',
-      disable_css: 'true'
-    });
-      }
-  })();
+_bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
+  {
+    target: '#bsa-native',
+    template: '<a class="native-box" href="##statlink##"><div class="native-sponsor">Sponsor</div><div class="native-text"><strong>##company##</strong> — ##description##</div></a>'
+  }
+);
 </script>
 
+
     发现错误？想参与编辑？
-    <a href="https://github.com/vuejs/cn.vuejs.org/blob/master/src/v2/guide/join.md" target="_blank">
+    <a href="https://github.com/vuejs/cn.vuejs.org/blob/master/src/v2/guide/join.md" rel="noopener" target="_blank">
       在 GitHub 上编辑此页！
     </a>
   </div>
@@ -1104,9 +1047,9 @@
     <script src="../../js/common.js"></script>
 
     <!-- search -->
-    <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+    <link href="https://code.bdstatic.com/npm/docsearch.js@1.5.0/dist/cdn/docsearch.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../../css/search.css">
-    <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script src="https://code.bdstatic.com/npm/docsearch.js@1.5.0/dist/cdn/docsearch.min.js"></script>
     <script>
     [
       '#search-query-nav',
@@ -1122,17 +1065,10 @@
       apiKey: '5638280abff9d207417bb03be05f0b25',
       indexName: 'vuejs_cn2',
       inputSelector: selector,
-      algoliaOptions: { facetFilters: ["version:" + version] }
+      algoliaOptions: { facetFilters: ["version:" + version] },
+      autocompleteOptions: { hint: false, appendTo: 'body'}
       })
     })
-    </script>
-
-    <!-- fastclick -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      FastClick.attach(document.body)
-    }, false)
     </script>
   </body>
 </html>

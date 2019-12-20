@@ -2,6 +2,7 @@
   initHashLevelRedirects()
   initMobileMenu()
   initVideoModal()
+  initNewNavLinks()
   if (PAGE_TYPE) {
     initVersionSelect()
     initApiSpecLinks()
@@ -19,15 +20,20 @@
   // moved to a perhaps differently-named section on
   // another page, we need this.
   function initHashLevelRedirects() {
+    checkForHashRedirect(/list\.html$/, {
+      key: '/v2/guide/list.html#维护状态'
+    })
     checkForHashRedirect(/components\.html$/, {
       '什么是组件？': '/v2/guide/components.html',
       '使用组件': '/v2/guide/components-registration.html',
       '全局注册': '/v2/guide/components-registration.html#全局注册',
       '局部注册': '/v2/guide/components-registration.html#局部注册',
       'DOM-模板解析注意事项': '/v2/guide/components.html#解析-DOM-模板时的注意事项',
+      'DOM-模板解析说明': '/v2/guide/components.html#解析-DOM-模板时的注意事项',
       'data-必须是函数': '/v2/guide/components.html#data-必须是一个函数',
       '组件组合': '/v2/guide/components.html#组件的组织',
       'Prop': '/v2/guide/components.html#通过-Prop-向子组件传递数据',
+      'Props': '/v2/guide/components.html#通过-Prop-向子组件传递数据',
       '使用-Prop-传递数据': '/v2/guide/components.html#通过-Prop-向子组件传递数据',
       'camelCase-vs-kebab-case': '/v2/guide/components-props.html#Prop-的大小写-camelCase-vs-kebab-case',
       '动态-Prop': '/v2/guide/components-props.html#静态的和动态的-Prop',
@@ -36,12 +42,13 @@
       'Prop-验证': '/v2/guide/components-props.html#Prop-验证',
       '非-Prop-特性': '/v2/guide/components-props.html#非-Prop-的特性',
       '替换-合并现有的特性': '/v2/guide/components-props.html#替换-合并已有的特性',
-      '自定义事件': '/v2/guide/components.html#通过事件向父级组件发送消息',
-      '使用-v-on-绑定自定义事件': '/v2/guide/components.html#通过事件向父级组件发送消息',
+      '自定义事件': '/v2/guide/components.html#监听子组件事件',
+      '使用-v-on-绑定自定义事件': '/v2/guide/components.html#监听子组件事件',
       '给组件绑定原生事件': '/v2/guide/components-custom-events.html#将原生事件绑定到组件',
       'sync-修饰符': '/v2/guide/components-custom-events.html#sync-修饰符',
       '使用自定义事件的表单输入组件': '/v2/guide/components-custom-events.html#将原生事件绑定到组件',
       '自定义组件的-v-model': '/v2/guide/components-custom-events.html#自定义组件的-v-model',
+      '在组件上使用-v-model': '/v2/guide/components-custom-events.html#自定义组件的-v-model',
       '非父子组件的通信': '/v2/guide/state-management.html',
       '使用插槽分发内容': '/v2/guide/components.html#通过插槽分发内容',
       '编译作用域': '/v2/guide/components-slots.html#编译作用域',
@@ -53,6 +60,7 @@
       '杂项': '/v2/guide/components-edge-cases.html',
       '编写可复用组件': '/v2/guide/components.html#组件的组织',
       '子组件引用': '/v2/guide/components-edge-cases.html#访问子组件实例或子元素',
+      '子组件索引': '/v2/guide/components-edge-cases.html#访问子组件实例或子元素',
       '异步组件': '/v2/guide/components-dynamic-async.html#异步组件',
       '高级异步组件': '/v2/guide/components-dynamic-async.html#处理加载状态',
       '组件命名约定': '/v2/guide/components-registration.html#组件名',
@@ -93,7 +101,7 @@
         if (ulNode.tagName === 'UL') {
           var specNode = document.createElement('li')
           var specLink = createSourceSearchPath(titleNode.textContent)
-          specNode.innerHTML = '<a href="' + specLink + '" target="_blank">源代码</a>'
+          specNode.innerHTML = '<a href="' + specLink + '" target="_blank" rel="noopener">源代码</a>'
           ulNode.appendChild(specNode)
         }
       })
@@ -128,6 +136,12 @@
     var hashTarget = document.getElementById(hash)
     if (!hashTarget) {
       var normalizedHash = normalizeHash(hash)
+      var edgeCases = {
+        'vue-set-target-key-value': 'vue-set'
+      }
+      if (edgeCases.hasOwnProperty(normalizedHash)) {
+        normalizedHash = edgeCases[normalizedHash];
+      }
       var possibleHashes = [].slice.call(document.querySelectorAll('[id]'))
         .map(function (el) { return el.id })
       possibleHashes.sort(function (hashA, hashB) {
@@ -162,6 +176,46 @@
       }
       return m[b.length][a.length]
     }
+  }
+
+  /**
+   * Initializes a list of links to mark as "updated" by adding a red dot next to them
+   */
+
+  function initNewNavLinks() {
+    var linkExpirePeriod = 60 * 24 * 3600 * 1000 // 2 months
+    var links = [
+      {
+        title: 'Resources',
+        updatedOn: new Date("Mon Sep 9 2019")
+      }
+    ]
+    var today = new Date().getTime()
+    var updatedLinks = links
+      .filter(function (link) {
+        return link.updatedOn.getTime() + linkExpirePeriod > today
+      })
+      .map(function (link) {
+        return link.title
+      })
+
+    var navLinks = document.querySelectorAll('#nav a.nav-link')
+    var newLinks = []
+    navLinks.forEach(function (link) {
+      if (updatedLinks.indexOf(link.textContent) !== -1) {
+        newLinks.push(link)
+      }
+    })
+    newLinks.forEach(function (link) {
+      var classes = link.classList
+      var linkKey = `visited-${link.textContent}`
+      if (localStorage.getItem(linkKey) || classes.contains('current')) {
+        classes.remove('updated-link')
+        localStorage.setItem(linkKey, 'true')
+      } else {
+        classes.add('new')
+      }
+    })
   }
 
   /**
@@ -337,9 +391,16 @@
         })
         .forEach(makeHeaderClickable)
 
-      smoothScroll.init({
+      new SmoothScroll('a[href*="#"]', {
         speed: 400,
-        offset: 0
+        speedAsDuration: true,
+        offset: function (anchor, toggle) {
+          let dataTypeAttr = anchor.attributes['data-type']
+          if(dataTypeAttr && dataTypeAttr.nodeValue === 'theme-product-title') {
+            return 300
+          }
+          return 0
+        }
       })
     }
 

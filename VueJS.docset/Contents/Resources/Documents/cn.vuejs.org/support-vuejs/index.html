@@ -1,12 +1,13 @@
 
 
+
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+  <head><meta name="generator" content="Hexo 3.8.0">
     <title>Vue.js</title>
     <meta charset="utf-8">
     <meta name="description" content="Vue.js - The Progressive JavaScript Framework">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="alternate" hreflang="x-default" href="https://vuejs.org/support-vuejs/index.html">
     <link rel="alternate" hreflang="zh" href="index.html">
@@ -35,7 +36,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="../images/icons/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="../images/icons/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="../images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../images/icons/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../images/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="../images/icons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../images/icons/favicon-16x16.png">
@@ -48,19 +49,26 @@
     <meta name="msapplication-config" content="browserconfig.xml">
     <link rel="manifest" href="../manifest.json">
 
+    <!-- <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin> -->
+    <!-- <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin> -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin> -->
+
     <!-- <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
     <!-- <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'> -->
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://code.bdstatic.com/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- main page styles -->
     <link rel="stylesheet" href="../css/page.css">
 
     <!-- this needs to be loaded before guide's inline scripts -->
     <script src="../js/vue.js"></script>
+
+    
+
     <script>
       Vue.config.productionTip = false
-      window.PAGE_TYPE = ""
+      window.PAGE_TYPE = "sponsors"
     </script>
 
     <!-- ga -->
@@ -68,14 +76,14 @@
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
       ga('create', 'UA-46852172-3', 'cn.vuejs.org');
       ga('send', 'pageview');
     </script>
   </head>
   <body class="docs">
-    <div id="mobile-bar" >
+    <div id="mobile-bar">
       <a class="menu-button"></a>
       <a class="logo" href="../index.html"></a>
     </div>
@@ -87,19 +95,30 @@
   <ul id="nav">
     <li>
   <form id="search-form">
-    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input" aria-label="搜索">
   </form>
 </li>
 <li class="nav-dropdown-container learn">
   <a class="nav-link">学习</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="../v2/guide/index.html" class="nav-link">教程</a></li>
-      <li><a href="../v2/api/index.html" class="nav-link">API</a></li>
-      <li><a href="../v2/style-guide/index.html" class="nav-link">风格指南</a></li>
-      <li><a href="../v2/examples/index.html" class="nav-link">示例</a></li>
-      <li><a href="../v2/cookbook/index.html" class="nav-link">Cookbook</a></li>
-    </ul></li>
+    <li><h4>文档</h4></li>
+    <li>
+      <ul>
+        <li><a href="../v2/guide/index.html" class="nav-link">教程</a></li>
+        <li><a href="../v2/api/index.html" class="nav-link">API</a></li>
+        <li><a href="../v2/style-guide/index.html" class="nav-link">风格指南</a></li>
+        <li><a href="../v2/examples/index.html" class="nav-link">示例</a></li>
+        <li><a href="../v2/cookbook/index.html" class="nav-link">Cookbook</a></li>
+      </ul>
+    </li>
+    <li><h4>视频教程</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank" rel="sponsored noopener">Vue Mastery (英文)</a></li>
+        <li><a href="https://vueschool.io/?friend=vuejs&amp;utm_source=Vuejs.org&amp;utm_medium=Link&amp;utm_content=Navbar%20Dropdown" class="nav-link" target="_blank" rel="noopener">Vue School (英文)</a></li>
+        <li><a href="https://learning.dcloud.io/" class="nav-link" target="_blank" rel="sponsored noopener">DCloud 视频教程</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -108,37 +127,32 @@
   <ul class="nav-dropdown">
     <li><h4>帮助</h4></li>
     <li><ul>
-      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">论坛</a></li>
-      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">聊天室</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">聚会</a></li>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank" rel="noopener">论坛</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank" rel="noopener">聊天室</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank" rel="noopener">聚会</a></li>
     </ul></li>
     <li><h4>工具</h4></li>
     <li>
       <ul>
-        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
-        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI</a></li>
-        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank" rel="noopener">Devtools</a></li>
+        <li><a href="https://cli.vuejs.org/zh/" class="nav-link" target="_blank" rel="noopener">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org/zh/" class="nav-link" target="_blank" rel="noopener">Vue Loader</a></li>
       </ul>
     </li>
     <li><h4>核心插件</h4></li>
     <li><ul>
-      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
-      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
-      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue 服务端渲染</a></li>
+      <li><a href="https://router.vuejs.org/zh/" class="nav-link" target="_blank" rel="noopener">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/zh/" class="nav-link" target="_blank" rel="noopener">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/zh/" class="nav-link" target="_blank" rel="noopener">Vue 服务端渲染</a></li>
     </ul></li>
     <li><h4>信息</h4></li>
     <li><ul>
-      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">周刊</a></li>
-      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
-      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
-      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">博客</a></li>
-      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">工作</a></li>
-    </ul></li>
-    <li><h4>资源列表</h4></li>
-    <li><ul>
-      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">官方仓库</a></li>
-      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue 优选</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue 资源</a></li>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank" rel="noopener">周刊</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank" rel="noopener">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank" rel="noopener">活动</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank" rel="noopener">博客</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank" rel="noopener">工作</a></li>
     </ul></li>
   </ul>
 </li>
@@ -146,28 +160,39 @@
 <li>
   <a href="../v2/guide/team.html" class="nav-link team">团队</a>
 </li>
+<li class="nav-dropdown-container resources">
+  <a href="#" class="nav-link">资源列表</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="../resources/partners.html" class="nav-link">合作伙伴</a></li>
+    <li><a href="../resources/themes.html" class="nav-link">主题</a></li>
+    <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+  </ul>
+</li>
+
+<!-- <li>
+  <a href="/partners" class="nav-link ">Partners</a>
+</li> -->
 <li class="nav-dropdown-container support-vue">
   <a href="index.html" class="nav-link">支持 Vue</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="index.html#One-time-Donations" class="nav-link">一次性赞助</a></li>
-      <li><a href="index.html#Recurring-Pledges" class="nav-link">周期性赞助</a></li>
-      <li><a href="https://www.smallsticker.com/%E8%B4%B4%E7%BA%B8/vue.html" class="nav-link">贴纸</a></li>
-      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">T 恤商店</a></li>
-    </ul></li>
+    <li><a href="#One-time-Donations" class="nav-link">一次性赞助</a></li>
+    <li><a href="#Recurring-Pledges" class="nav-link">周期性赞助</a></li>
+    <li><a href="https://www.smallsticker.com/%E8%B4%B4%E7%BA%B8/vue.html" rel="noopener" class="nav-link">贴纸</a></li>
+    <li><a href="https://osholic.com/?utm_source=vue&amp;utm_medium=dropdown" rel="noopener" class="nav-link">周边</a></li>
+    <li><a href="https://vue.threadless.com" target="_blank" rel="noopener" class="nav-link">T 恤商店</a></li>
   </ul>
 </li>
 
 <li class="nav-dropdown-container language">
   <a class="nav-link">多语言</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://jp.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://ru.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank">Русский</a></li>
-    <li><a href="https://kr.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://br.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://fr.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank">Français</a></li>
-    <li><a href="https://vi.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+    <li><a href="https://vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank" rel="noopener">English</a></li>
+    <li><a href="https://jp.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank" rel="noopener">日本語</a></li>
+    <li><a href="https://ru.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank" rel="noopener">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank" rel="noopener">한국어</a></li>
+    <li><a href="https://br.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank" rel="noopener">Português</a></li>
+    <li><a href="https://fr.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank" rel="noopener">Français</a></li>
+    <li><a href="https://vi.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank" rel="noopener">Tiếng Việt</a></li>
   </ul>
 </li>
 
@@ -180,114 +205,83 @@
       <div id="main" class="fix-sidebar">
         
           
-  <div class="sidebar">
-    <ul class="main-menu">
-      <li>
-  <form id="search-form">
-    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
-  </form>
-</li>
-<li class="nav-dropdown-container learn">
-  <a class="nav-link">学习</a><span class="arrow"></span>
-  <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="../v2/guide/index.html" class="nav-link">教程</a></li>
-      <li><a href="../v2/api/index.html" class="nav-link">API</a></li>
-      <li><a href="../v2/style-guide/index.html" class="nav-link">风格指南</a></li>
-      <li><a href="../v2/examples/index.html" class="nav-link">示例</a></li>
-      <li><a href="../v2/cookbook/index.html" class="nav-link">Cookbook</a></li>
-    </ul></li>
-  </ul>
-</li>
+  
 
-<li class="nav-dropdown-container ecosystem">
-  <a class="nav-link">生态系统</a><span class="arrow"></span>
-  <ul class="nav-dropdown">
-    <li><h4>帮助</h4></li>
-    <li><ul>
-      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">论坛</a></li>
-      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">聊天室</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">聚会</a></li>
-    </ul></li>
-    <li><h4>工具</h4></li>
-    <li>
-      <ul>
-        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
-        <li><a href="https://cli.vuejs.org/" class="nav-link" target="_blank">Vue CLI</a></li>
-        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
-      </ul>
-    </li>
-    <li><h4>核心插件</h4></li>
-    <li><ul>
-      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
-      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
-      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue 服务端渲染</a></li>
-    </ul></li>
-    <li><h4>信息</h4></li>
-    <li><ul>
-      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">周刊</a></li>
-      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
-      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
-      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">博客</a></li>
-      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">工作</a></li>
-    </ul></li>
-    <li><h4>资源列表</h4></li>
-    <li><ul>
-      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">官方仓库</a></li>
-      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue 优选</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue 资源</a></li>
-    </ul></li>
-  </ul>
-</li>
-
-<li>
-  <a href="../v2/guide/team.html" class="nav-link team">团队</a>
-</li>
-<li class="nav-dropdown-container support-vue">
-  <a href="index.html" class="nav-link">支持 Vue</a><span class="arrow"></span>
-  <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="index.html#One-time-Donations" class="nav-link">一次性赞助</a></li>
-      <li><a href="index.html#Recurring-Pledges" class="nav-link">周期性赞助</a></li>
-      <li><a href="https://www.smallsticker.com/%E8%B4%B4%E7%BA%B8/vue.html" class="nav-link">贴纸</a></li>
-      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">T 恤商店</a></li>
-    </ul></li>
-  </ul>
-</li>
-
-<li class="nav-dropdown-container language">
-  <a class="nav-link">多语言</a><span class="arrow"></span>
-  <ul class="nav-dropdown">
-    <li><a href="https://vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://jp.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://ru.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank">Русский</a></li>
-    <li><a href="https://kr.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://br.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://fr.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank">Français</a></li>
-    <li><a href="https://vi.vuejs.org/support-vuejs/index.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
-  </ul>
-</li>
-
-<li><a href="https://github.com/vuejs/cn.vuejs.org/" target="_blank" class="nav-link contribute">参与翻译</a></li>
-
-    </ul>
+<div class="sidebar">
+  <div class="sidebar-inner">
+    
+    <div class="list">
+      <div id="sidebar-sponsors-special">
+  <div class="main-sponsor">
+    <span>特别赞助商</span>
+    <div>
+    <a href="http://www.dcloud.io/?hmsr=vuejsorg&amp;hmpl=&amp;hmcu=&amp;hmkw=&amp;hmci=" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="../images/dcloud.gif" alt="">
+    </a>
+    </div>
+    <div>
+    <a href="https://youzan.github.io/vant?source=vuejsorg" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="../images/vant.png" alt="">
+    </a>
+    </div>
   </div>
+</div>
+<!--
 
-<div class="content  ">
+-->
+
+      
+        <h2>
+          
+          
+          
+            <select class="version-select">
+              <option value="SELF" selected>2.x</option>
+              <option value="v1">1.0</option>
+              <option value="012">0.12</option>
+              <option value="011">0.11</option>
+            </select>
+          
+        </h2>
+        <ul class="menu-root">
+  
+    
+    
+    <li>
+      <a href="index.html" class="sidebar-link current"></a>
+    </li>
+  
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+<!--
+
+-->
+
+
+<div class="content sponsors with-sidebar ">
+  
+    
+      
+
+    
   
   
 
   <div class="ad-pagetop">
   <a href="http://www.tp-shop.cn/index.php?http_referer=vuejs" target="_blank" rel="noopener noreferrer">
     <span class="name">TPshop</span>
-    <span class="description">中国开源商城系统 - 开源学习系统</span>
+    <span class="description">中国免费商城系统 - 搜豹商城系统 - 免费50小时Vue视频教程</span>
     <span class="action">立即查看 &gt;</span>
   </a>
 </div>
 
 
   
-    <h1>赞助 Vue.js 的研发</h1>
+    <h1 id="sponsor-Vue-js-Development">赞助 Vue.js 的研发</h1>
 
 <p>
 Vue.js 是采用 MIT 许可的开源项目，使用完全免费。
@@ -299,16 +293,16 @@ Vue.js 是采用 MIT 许可的开源项目，使用完全免费。
 <p>我们通过以下方式接受赞助：</p>
 
 <div id="one-time-donations">
-  <a href="https://www.paypal.me/evanyou" target="_blank">
+  <a href="https://www.paypal.me/evanyou" target="_blank" rel="noopener">
     <img src="../images/paypal.png" style="width:100px">
   </a>
-  <a href="index.html#btc"><svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#FFAD02" cx="19" cy="19" r="19"></circle><path d="M24.7 19.68a3.63 3.63 0 0 0 1.47-2.06c.74-2.77-.46-4.87-3.2-5.6l.89-3.33a.23.23 0 0 0-.16-.28l-1.32-.35a.23.23 0 0 0-.28.15l-.89 3.33-1.75-.47.88-3.32a.23.23 0 0 0-.16-.28l-1.31-.35a.23.23 0 0 0-.28.15l-.9 3.33-3.73-1a.23.23 0 0 0-.27.16l-.36 1.33c-.03.12.04.25.16.28l.22.06a1.83 1.83 0 0 1 1.28 2.24l-1.9 7.09a1.83 1.83 0 0 1-2.07 1.33.23.23 0 0 0-.24.12l-.69 1.24a.23.23 0 0 0 0 .2c.02.07.07.12.14.13l3.67.99-.89 3.33c-.03.12.04.24.16.27l1.32.35c.12.03.24-.04.28-.16l.89-3.32 1.76.47-.9 3.33c-.02.12.05.24.16.27l1.32.35c.12.03.25-.04.28-.16l.9-3.32.87.23c2.74.74 4.83-.48 5.57-3.25.35-1.3-.05-2.6-.92-3.48zm-5.96-5.95l2.64.7a1.83 1.83 0 0 1 1.28 2.24 1.83 1.83 0 0 1-2.23 1.3l-2.64-.7.95-3.54zm1.14 9.8l-3.51-.95.95-3.54 3.51.94a1.83 1.83 0 0 1 1.28 2.24 1.83 1.83 0 0 1-2.23 1.3z" fill="#FFF"></path></g></svg>
+  <a href="#btc"><svg width="38" height="38" viewbox="0 0 38 38" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#FFAD02" cx="19" cy="19" r="19"/><path d="M24.7 19.68a3.63 3.63 0 0 0 1.47-2.06c.74-2.77-.46-4.87-3.2-5.6l.89-3.33a.23.23 0 0 0-.16-.28l-1.32-.35a.23.23 0 0 0-.28.15l-.89 3.33-1.75-.47.88-3.32a.23.23 0 0 0-.16-.28l-1.31-.35a.23.23 0 0 0-.28.15l-.9 3.33-3.73-1a.23.23 0 0 0-.27.16l-.36 1.33c-.03.12.04.25.16.28l.22.06a1.83 1.83 0 0 1 1.28 2.24l-1.9 7.09a1.83 1.83 0 0 1-2.07 1.33.23.23 0 0 0-.24.12l-.69 1.24a.23.23 0 0 0 0 .2c.02.07.07.12.14.13l3.67.99-.89 3.33c-.03.12.04.24.16.27l1.32.35c.12.03.24-.04.28-.16l.89-3.32 1.76.47-.9 3.33c-.02.12.05.24.16.27l1.32.35c.12.03.25-.04.28-.16l.9-3.32.87.23c2.74.74 4.83-.48 5.57-3.25.35-1.3-.05-2.6-.92-3.48zm-5.96-5.95l2.64.7a1.83 1.83 0 0 1 1.28 2.24 1.83 1.83 0 0 1-2.23 1.3l-2.64-.7.95-3.54zm1.14 9.8l-3.51-.95.95-3.54 3.51.94a1.83 1.83 0 0 1 1.28 2.24 1.83 1.83 0 0 1-2.23 1.3z" fill="#FFF"/></g></svg>
  BTC</a>
-  <a href="index.html#bch"><svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#8DC451" cx="19" cy="19" r="19"></circle><path d="M24.5 16.72c.37-.76.48-1.64.25-2.52-.75-2.76-2.84-3.98-5.58-3.25l-.89-3.32a.23.23 0 0 0-.28-.16l-1.32.35a.23.23 0 0 0-.16.27l.9 3.33-1.76.47-.9-3.32a.23.23 0 0 0-.27-.16l-1.32.35a.23.23 0 0 0-.16.28l.9 3.32-3.74 1a.23.23 0 0 0-.16.29l.35 1.32c.04.12.16.2.28.17l.22-.06c.97-.26 1.97.32 2.23 1.3l1.9 7.08c.25.93-.25 1.87-1.13 2.2a.23.23 0 0 0-.14.21l.02 1.43c0 .07.04.13.1.18.05.04.12.05.19.04l3.67-.99.9 3.33c.03.12.15.19.27.15l1.31-.35c.12-.03.2-.16.16-.28l-.88-3.32 1.75-.47.9 3.33c.03.12.15.19.27.15l1.32-.35c.12-.03.19-.16.16-.28l-.9-3.32.88-.24c2.75-.73 3.95-2.83 3.2-5.6a3.63 3.63 0 0 0-2.54-2.56zm-8.13-2.17l2.63-.7c.97-.26 1.97.32 2.23 1.3.27.97-.3 1.98-1.28 2.24l-2.63.7-.95-3.54zm5.88 7.91l-3.5.94-.96-3.54 3.51-.94c.97-.26 1.97.32 2.24 1.3.26.98-.32 1.98-1.29 2.24z" fill="#FFF"></path></g></svg>
+  <a href="#bch"><svg width="38" height="38" viewbox="0 0 38 38" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#8DC451" cx="19" cy="19" r="19"/><path d="M24.5 16.72c.37-.76.48-1.64.25-2.52-.75-2.76-2.84-3.98-5.58-3.25l-.89-3.32a.23.23 0 0 0-.28-.16l-1.32.35a.23.23 0 0 0-.16.27l.9 3.33-1.76.47-.9-3.32a.23.23 0 0 0-.27-.16l-1.32.35a.23.23 0 0 0-.16.28l.9 3.32-3.74 1a.23.23 0 0 0-.16.29l.35 1.32c.04.12.16.2.28.17l.22-.06c.97-.26 1.97.32 2.23 1.3l1.9 7.08c.25.93-.25 1.87-1.13 2.2a.23.23 0 0 0-.14.21l.02 1.43c0 .07.04.13.1.18.05.04.12.05.19.04l3.67-.99.9 3.33c.03.12.15.19.27.15l1.31-.35c.12-.03.2-.16.16-.28l-.88-3.32 1.75-.47.9 3.33c.03.12.15.19.27.15l1.32-.35c.12-.03.19-.16.16-.28l-.9-3.32.88-.24c2.75-.73 3.95-2.83 3.2-5.6a3.63 3.63 0 0 0-2.54-2.56zm-8.13-2.17l2.63-.7c.97-.26 1.97.32 2.23 1.3.27.97-.3 1.98-1.28 2.24l-2.63.7-.95-3.54zm5.88 7.91l-3.5.94-.96-3.54 3.51-.94c.97-.26 1.97.32 2.24 1.3.26.98-.32 1.98-1.29 2.24z" fill="#FFF"/></g></svg>
  BCH</a>
-  <a href="index.html#eth"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 32 32"><g fill="none" fill-rule="evenodd"><ellipse cx="16" cy="16" fill="#6F7CBA" rx="16" ry="16"></ellipse><path fill="#FFF" d="M10.13 17.76c-.1-.15-.06-.2.09-.12l5.49 3.09c.15.08.4.08.56 0l5.58-3.08c.16-.08.2-.03.1.11L16.2 25.9c-.1.15-.28.15-.38 0l-5.7-8.13zm.04-2.03a.3.3 0 0 1-.13-.42l5.74-9.2c.1-.15.25-.15.34 0l5.77 9.19c.1.14.05.33-.12.41l-5.5 2.78a.73.73 0 0 1-.6 0l-5.5-2.76z"></path></g></svg>
+  <a href="#eth"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewbox="0 0 32 32"><g fill="none" fill-rule="evenodd"><ellipse cx="16" cy="16" fill="#6F7CBA" rx="16" ry="16"/><path fill="#FFF" d="M10.13 17.76c-.1-.15-.06-.2.09-.12l5.49 3.09c.15.08.4.08.56 0l5.58-3.08c.16-.08.2-.03.1.11L16.2 25.9c-.1.15-.28.15-.38 0l-5.7-8.13zm.04-2.03a.3.3 0 0 1-.13-.42l5.74-9.2c.1-.15.25-.15.34 0l5.77 9.19c.1.14.05.33-.12.41l-5.5 2.78a.73.73 0 0 1-.6 0l-5.5-2.76z"/></g></svg>
  ETH</a>
-  <a href="index.html#ltc"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38"><g fill="none" fill-rule="evenodd"><circle cx="19" cy="19" r="19" fill="#B5B5B5" fill-rule="nonzero"></circle><path fill="#FFF" d="M12.29 28.04l1.29-5.52-1.58.67.63-2.85 1.64-.68L16.52 10h5.23l-1.52 7.14 2.09-.74-.58 2.7-2.05.8-.9 4.34h8.1l-.99 3.8z"></path></g></svg>
+  <a href="#ltc"><svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewbox="0 0 38 38"><g fill="none" fill-rule="evenodd"><circle cx="19" cy="19" r="19" fill="#B5B5B5" fill-rule="nonzero"/><path fill="#FFF" d="M12.29 28.04l1.29-5.52-1.58.67.63-2.85 1.64-.68L16.52 10h5.23l-1.52 7.14 2.09-.74-.58 2.7-2.05.8-.9 4.34h8.1l-.99 3.8z"/></g></svg>
  LTC</a>
 </div>
 
@@ -348,7 +342,11 @@ window.addEventListener('hashchange', function () {
 
 <h2 id="Sticker">购买贴纸</h2>
 
-你也可以通过 <a href="https://www.smallsticker.com/%E8%B4%B4%E7%BA%B8/vue.html" target="_blank">购买我们官方授权的贴纸</a> 的方式来支持 Vue - 每售出一张贴纸，我们将获得 2 元的捐赠。
+你也可以通过 <a href="https://www.smallsticker.com/%E8%B4%B4%E7%BA%B8/vue.html" target="_blank" rel="noopener">购买我们官方授权的贴纸</a> 的方式来支持 Vue - 每售出一张贴纸，我们将获得 2 元的捐赠。
+
+<h2 id="Merchandise">购买周边</h2>
+
+同样，购买我们 <a href="https://osholic.com/?utm_source=vue&amp;utm_medium=support_page" target="_blank" rel="noopener">官方授权的周边产品</a>，也是支持 Vue 的一种方式 - 每售出一件周边，我们将获得售价 10% 的捐赠。
 
 <h2 id="Recurring-Pledges">周期性赞助</h2>
 
@@ -358,212 +356,245 @@ window.addEventListener('hashchange', function () {
 
 <ul>
   <li>
-    <a href="https://www.patreon.com/evanyou" target="_blank">通过 Patreon 赞助</a> (直接支持 Evan You 全职为 Vue 工作)
+    <a href="https://www.patreon.com/evanyou" target="_blank" rel="noopener">通过 Patreon 赞助</a> (直接支持 Evan You 全职为 Vue 工作)
   </li>
   <li>
     <a href="https://opencollective.com/vuejs">通过 OpenCollective 赞助</a> (加入一个基金会，通过透明的费用模型支持社区的工作和活动)
   </li>
 </ul>
 
-<h2>当前的顶级赞助商</h2>
+<h2 id="current-premium-sponsors">当前的顶级赞助商</h2>
 
-<h3>特别赞助商</h3>
+<h3 id="special-sponsors">特别赞助商</h3>
 
 <p class="platinum">
-  <a href="https://stdlib.com/" target="_blank">
+  <a href="https://stdlib.com/" target="_blank" rel="noopener">
     <img src="../images/stdlib.png">
   </a>
 </p>
 
-<h3 id="special-sponsor-china">特别赞助商 (中国区)</h3>
+<h3 id="special-sponsor-china">中国区特别赞助商</h3>
 
 
 <p class="platinum">
-  <a href="https://studio.qcloud.coding.net/campaign/favorite-plugins/?utm_source=vue.js&utm_content=cs-logo" target="_blank">
-    <img src="../images/cloudstudio.png">
-  </a>
-  <a href="http://www.dcloud.io/?hmsr=vuejsorg&hmpl=&hmcu=&hmkw=&hmci=" target="_blank">
+  <a href="http://www.dcloud.io/?hmsr=vuejsorg&amp;hmpl=&amp;hmcu=&amp;hmkw=&amp;hmci=" target="_blank">
     <img src="../images/dcloud.gif">
   </a>
+  <a href="https://youzan.github.io/vant?source=vuejsorg" target="_blank">
+    <img src="../images/vant.png">
+  </a>
 </p>
 
 
-<h3>Patreon 白金赞助商</h3>
+<h3 id="platinum">Patreon 白金赞助商</h3>
 
 <p class="platinum">
-  <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank">
-    <img src="../images/bit-wide.png">
-  </a>
-  <a href="http://tooltwist.com/" target="_blank">
-    <img src="../images/tooltwist.png">
-  </a>
-  <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank">
+  <a href="https://vueschool.io/?utm_source=Vuejs.org&amp;utm_medium=Banner&amp;utm_campaign=Sponsored%20Banner&amp;utm_content=V1" target="_blank" rel="noopener">
     <img src="../images/vueschool.png">
   </a>
-  <a href="https://vehikl.com/" target="_blank">
+  <a href="https://vehikl.com/" target="_blank" rel="noopener">
     <img src="../images/vehikl.png">
   </a>
-  <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank">
+  <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&amp;utm_medium=website&amp;utm_campaign=nativescript-awareness" target="_blank" rel="noopener">
     <img src="../images/nativescript.png">
+  </a>
+  <a href="https://retool.com/?utm_source=sponsor&amp;utm_campaign=vue" target="_blank" rel="noopener">
+    <img src="../images/retool.png">
   </a>
 </p>
 
-<h3>OpenCollective 白金赞助商</h3>
+<h3 id="open-collective-platinum">OpenCollective 白金赞助商</h3>
 
 <p class="open-collective-sponsors sponsor-section">
-  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/0/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/0/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/platinum-sponsors/0/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/1/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/1/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/platinum-sponsors/1/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/2/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/2/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/platinum-sponsors/2/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/3/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/3/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/platinum-sponsors/3/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/4/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/4/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/platinum-sponsors/4/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/5/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/5/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/platinum-sponsors/5/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/6/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/6/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/platinum-sponsors/6/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/7/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/7/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/platinum-sponsors/7/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/8/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/8/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/platinum-sponsors/8/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/9/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/9/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/platinum-sponsors/9/avatar.svg">
   </a>
 </p>
 
-<h3>Patreon 黄金赞助商</h3>
+<h3 id="patreon-gold">Patreon 黄金赞助商</h3>
 
 <p class="patreon-sponsors sponsor-section">
-  <a href="https://www.vuemastery.com/" target="_blank">
+  <a href="https://www.vuemastery.com/" target="_blank" rel="noopener">
     <img src="../images/vuemastery.png">
   </a>
-  <a href="https://laravel.com" target="_blank">
+  <a href="https://laravel.com" target="_blank" rel="noopener">
     <img src="../images/laravel.png">
   </a>
-  <a href="https://htmlburger.com" target="_blank">
-    <img src="../images/htmlburger.png">
-  </a>
-  <a href="https://chaitin.cn/en/" target="_blank">
+  <a href="https://chaitin.cn/en/" target="_blank" rel="noopener">
     <img src="../images/chaitin.png">
   </a>
-  <a href="https://www.frontenddeveloperlove.com/" target="_blank">
-    <img src="../images/frontend-love.png">
+  <a href="https://htmlburger.com" target="_blank" rel="noopener">
+    <img src="../images/html_burger.png">
   </a>
-  <a href="https://onsen.io/vue/" target="_blank">
-    <img src="../images/onsen-ui.png">
+  <a href="https://www.frontenddeveloperlove.com/" target="_blank" rel="noopener">
+    <img src="../images/frontendlove.png">
   </a>
-  <a href="https://vuetifyjs.com" target="_blank">
-    <img src="../images/vuetify.png">
+  <a href="https://onsen.io/vue/" target="_blank" rel="noopener">
+    <img src="../images/onsen_ui.png">
   </a>
-  <a href="https://neds.com.au/" target="_blank">
+  <a href="https://neds.com.au/" target="_blank" rel="noopener">
     <img src="../images/neds.png">
   </a>
-  <a href="https://icons8.com/" target="_blank">
-    <img src="../images/icons8.png">
+  <a href="https://icons8.com/" target="_blank" rel="noopener">
+    <img src="../images/icons_8.png">
   </a>
-  <a href="https://vuejobs.com/?ref=vuejs" target="_blank">
+  <a href="https://vuejobs.com/?ref=vuejs" target="_blank" rel="noopener">
     <img src="../images/vuejobs.png">
   </a>
-  <a href="https://teamextension.io/" target="_blank">
-    <img src="../images/teamextension.png">
-  </a>
-  <a href="http://aaha.co/" target="_blank">
-    <img src="../images/aaha.png">
-  </a>
-  <a href="https://www.valuecoders.com" target="_blank">
-    <img src="../images/valuecoders.png">
-  </a>
-  <a href="https://tidelift.com/subscription/npm/vue" target="_blank">
+  <a href="https://tidelift.com/subscription/npm/vue" target="_blank" rel="noopener">
     <img src="../images/tidelift.png">
   </a>
-  <a href="https://webdock.io/en" target="_blank">
-    <img src="../images/webdock.png">
-  </a>
-  <a href="https://syncfusion.com/products/vue" target="_blank">
-    <img src="../images/syncfusion.png">
-  </a>
-  <a href="https://opteo.com/vue" target="_blank">
+  <a href="https://opteo.com/vue" target="_blank" rel="noopener">
     <img src="../images/opteo.png">
   </a>
-  <a href="https://courses.wilderminds.com/p/vue-js-by-example" target="_blank">
-    <img src="../images/wilderminds.png">
-  </a>
-  <a href="https://devsquad.com/" target="_blank">
+  <a href="https://devsquad.com/" target="_blank" rel="noopener">
     <img src="../images/devsquad.png">
+  </a>
+  <a href="https://www.firesticktricks.com/" target="_blank" rel="noopener">
+    <img src="../images/firestick_tricks.png">
+  </a>
+  <a href="https://intygrate.com/" target="_blank" rel="noopener">
+    <img src="../images/intygrate.png">
+  </a>
+  <a href="https://passionatepeople.io/" target="_blank" rel="noopener">
+    <img src="../images/passionate_people.png">
+  </a>
+  <a href="http://en.shopware.com/" target="_blank" rel="noopener">
+    <img src="../images/shopware_ag.png">
+  </a>
+  <a href="https://www.vpnranks.com/" target="_blank" rel="noopener">
+    <img src="../images/vpnranks.png">
+  </a>
+  <a href="https://www.simplyswitch.com/" target="_blank" rel="noopener">
+    <img src="../images/energy_comparison.png">
+  </a>
+  <a href="https://www.bacancytechnology.com" target="_blank" rel="noopener">
+    <img src="../images/bacancy_technology.png">
+  </a>
+  <a href="https://www.bestvpn.co/" target="_blank" rel="noopener">
+    <img src="../images/bestvpn_co.png">
+  </a>
+  <a href="https://blokt.com/" target="_blank" rel="noopener">
+    <img src="../images/blokt_cryptocurrency_news.png">
+  </a>
+  <a href="https://www.y8.com/" target="_blank" rel="noopener">
+    <img src="../images/y8.png">
+  </a>
+  <a href="https://js.devexpress.com/" target="_blank" rel="noopener">
+    <img src="../images/devexpress.png">
+  </a>
+  <a href="https://fastcoding.jp/javascript/" target="_blank" rel="noopener">
+    <img src="../images/fastcoding_inc.svg">
+  </a>
+  <a href="https://usave.co.uk/utilities/broadband" target="_blank" rel="noopener">
+    <img src="../images/usave.png">
+  </a>
+  <a href="https://www.dailynow.co/" target="_blank" rel="noopener">
+    <img src="../images/daily.png">
+  </a>
+  <a href="https://storekit.com" target="_blank" rel="noopener">
+    <img src="../images/storekit.png">
+  </a>
+  <a href="https://staffaugmentation.ro/en" target="_blank" rel="noopener">
+    <img src="../images/staff_augmentation.png">
+  </a>
+  <a href="https://piratebay.ink" target="_blank" rel="noopener">
+    <img src="../images/piratebay_proxy.png">
+  </a>
+  <a href="https://www.programmers.io" target="_blank" rel="noopener">
+    <img src="../images/programmers_io.png">
   </a>
 </p>
 
-<h3>OpenCollective 黄金赞助商</h3>
+<h3 id="open-collective-gold">OpenCollective 黄金赞助商</h3>
 
 <p class="open-collective-sponsors sponsor-section">
-  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/0/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/0/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/gold-sponsors/0/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/1/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/1/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/gold-sponsors/1/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/2/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/2/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/gold-sponsors/2/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/3/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/3/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/gold-sponsors/3/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/4/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/4/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/gold-sponsors/4/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/5/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/5/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/gold-sponsors/5/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/6/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/6/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/gold-sponsors/6/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/7/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/7/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/gold-sponsors/7/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/8/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/8/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/gold-sponsors/8/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/9/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/9/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/gold-sponsors/9/avatar.svg">
   </a>
 </p>
 
-<h3>Patreon 白银赞助商</h3>
+<h3 id="patreon-silver">Patreon 白银赞助商</h3>
 
 <p class="patreon-sponsors sponsor-section">
-  <a href="https://dopamine.bg/" target="_blank">
+  <a href="https://dopamine.bg/" target="_blank" rel="noopener">
     <img src="../images/dopamine.png">
+  </a>
+  <a href="https://roadster.com" target="_blank" rel="noopener">
+    <img src="../images/roadster.png">
   </a>
 </p>
 
-<h3>OpenCollective 白银赞助商</h3>
+<h3 id="open-collective-silver">OpenCollective 白银赞助商</h3>
 
 <p class="open-collective-sponsors sponsor-section">
-  <a href="https://opencollective.com/vuejs/tiers/silver-sponsors/0/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/silver-sponsors/0/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/silver-sponsors/0/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/silver-sponsors/1/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/silver-sponsors/1/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/silver-sponsors/1/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/silver-sponsors/2/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/silver-sponsors/2/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/silver-sponsors/2/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/silver-sponsors/3/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/silver-sponsors/3/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/silver-sponsors/3/avatar.svg">
   </a>
-  <a href="https://opencollective.com/vuejs/tiers/silver-sponsors/4/website" target="_blank">
+  <a href="https://opencollective.com/vuejs/tiers/silver-sponsors/4/website" target="_blank" rel="noopener">
     <img src="https://opencollective.com/vuejs/tiers/silver-sponsors/4/avatar.svg">
   </a>
 </p>
@@ -571,7 +602,7 @@ window.addEventListener('hashchange', function () {
 <h3>中国区视频托管赞助商</h3>
 
 <p class="video-sponsors-china sponsor-section">
-  <a href="http://cloud.youku.com/index.php?source=vuejs" target="_blank">
+  <a href="https://cloud.youku.com/index.php?source=vuejs" target="_blank" rel="noopener">
     <img src="../images/youku.png">
   </a>
 </p>
@@ -588,7 +619,7 @@ window.addEventListener('hashchange', function () {
   
   <div class="footer">
     发现错误？想参与编辑？
-    <a href="https://github.com/vuejs/cn.vuejs.org/blob/master/src/support-vuejs/index.md" target="_blank">
+    <a href="https://github.com/vuejs/cn.vuejs.org/blob/master/src/support-vuejs/index.md" rel="noopener" target="_blank">
       在 GitHub 上编辑此页！
     </a>
   </div>
@@ -604,9 +635,9 @@ window.addEventListener('hashchange', function () {
     <script src="../js/common.js"></script>
 
     <!-- search -->
-    <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+    <link href="https://code.bdstatic.com/npm/docsearch.js@1.5.0/dist/cdn/docsearch.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../css/search.css">
-    <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script src="https://code.bdstatic.com/npm/docsearch.js@1.5.0/dist/cdn/docsearch.min.js"></script>
     <script>
     [
       '#search-query-nav',
@@ -622,17 +653,10 @@ window.addEventListener('hashchange', function () {
       apiKey: '5638280abff9d207417bb03be05f0b25',
       indexName: 'vuejs_cn2',
       inputSelector: selector,
-      algoliaOptions: { facetFilters: ["version:" + version] }
+      algoliaOptions: { facetFilters: ["version:" + version] },
+      autocompleteOptions: { hint: false, appendTo: 'body'}
       })
     })
-    </script>
-
-    <!-- fastclick -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      FastClick.attach(document.body)
-    }, false)
     </script>
   </body>
 </html>

@@ -1,3 +1,8 @@
+@media (max-width: 900px) {
+  .algolia-autocomplete {
+    position: fixed !important;
+  }
+}
 .algolia-autocomplete {
   line-height: normal;
 }
@@ -15,7 +20,7 @@
   border-color: #ddd;
 }
 .algolia-docsearch-suggestion--content {
-  color: #2c3e50;
+  color: #273849;
 }
 .algolia-docsearch-suggestion--subcategory-column {
   border-color: #ddd;
@@ -33,7 +38,5 @@
   color: #2c815b;
 }
 .aa-cursor .algolia-docsearch-suggestion--content {
-  color: #2c3e50;
+  color: #273849;
 }
-
-.sidebar, #mobile-bar, #header, #search-form, .sidebar .list, #ad,.content .ad-pagetop, .content h3 > a:before, .content h3:before, .content h3 > a:before {display:none !important} .content {margin-left:0px !important; max-width:none !important; padding-top:15px !important} .content {padding-left:0px !important} body.docs {padding-top:0px !important} #sponsors {display:none !important} #main {padding:0 20px !important} #translations{display:none !important} #mobile-bar {position:absolute !important} .content.api {margin-top:-42px !important} #ad, #sidebar-sponsors-platinum-right {display:none !important} .content h2, .content h3 {pointer-events:initial} .content h2:before, .content h3:before, .content h3 > a:before {content:none !important} .content.api {margin-top:0 !important} .demo {display:none !important}
