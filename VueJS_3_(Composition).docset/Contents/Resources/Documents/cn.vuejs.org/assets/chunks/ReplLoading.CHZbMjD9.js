@@ -1,0 +1,1 @@
+import{_ as o,c as n,o as d,a as e}from"./framework.CSxrXzdz.js";const i={},r={class:"repl-loading"};function a(c,s){return d(),n("div",r,[...s[0]||(s[0]=[e("div",{class:"lds-ring"},[e("div"),e("div"),e("div"),e("div")],-1),e("div",null,"正在加载 Repl 环境...",-1)])])}const l=o(i,[["render",a]]);export{l as R};

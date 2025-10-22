@@ -1,13 +1,28 @@
 # VueJS-docset-CN
 - Vue.docset  dash 文档  Vue文档中文版 
-- 取自官方 https://cn.vuejs.org (Version：**2.6.11**)
+
+## 类别
+- [VueJS.docset](VueJS.docset)   (Version：**2.6.11**)
+- [VueJS_3_(Composition).docset](VueJS_3_%28Composition%29.docset)   (Version：**3.5.22**)
+
 ## 任务列表
-- [x] 持续更新
+- [x] 持续更新（不再更新v2版本）
 - [x] 提供制作过程 
 
 ## 用法
  - Mac下用户下载 Dash 使用文档
  - Windows 和 Linux 用户可下载 Zeal 使用本文档
+
+## 文档来源
+- [官网](https://cn.vuejs.org)
+- [Github仓库：docs-zh-cn](https://github.com/vuejs-translations/docs-zh-cn) 
+
+## 亮点
+- 完整的中文文档
+- 包含教程、API、风格指南等多种类型的文档
+- 与官方版本交互式相同，支持搜索、目录导航等功能
+
+
 
  ##  制作 docSet 文档
 
@@ -87,10 +102,10 @@ Dash所需的文档都是`.docSet`后缀的文件，其实docSet文件就是一�
 
 对比后选择用官方的外部资源，文档内容则用自己镜像的
 
-<div>
-	<img width='33%' src="./截图/vue-dir.png" style='width:33%;height:450px;float:left;'>
-	<img width='33%' src="./截图/vue-cn-dir2.png" style='width:33%;height:450px;float:right;'>
-    <img width='33%' src="./截图/vue-cn-dir-result.png" style='width:33%;height:450px;float:left;'>
+<div style="display: flex;justify-content: space-between;">
+	<img width='33%' src="./截图/vue-dir.png" style='width:33%;height:300px;'>
+	<img width='33%' src="./截图/vue-cn-dir2.png" style='width:33%;height:300px;;'>
+    <img width='33%' src="./截图/vue-cn-dir-result.png" style='width:33%;height:300px;'>
 </div>
 
 - 左侧为dash官方文档中的资源 、中间为合并后的资源（后面要用到）、 右侧为自己镜像的资源
