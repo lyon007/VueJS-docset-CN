@@ -1,27 +1,25 @@
 # VueJS-docset-CN
-- Vue.docset  dash 文档  Vue文档中文版 
+Vue.docset 、dash 文档 、Vue3文档中文版 
 
-## 类别
+## 亮点
+- 完整的中文文档，包含教程、API、风格指南等多种类型的文档
+- 深度优化，与官方版本交互式一致，支持全局搜索、TOC导航等功能
+
+<div style="">
+	<img src="./截图/vue.js%203%20.gif" style='width:100%;'>
+</div>
+
+## 2种版本
 - [VueJS.docset](VueJS.docset)   (Version：**2.6.11**)
 - [VueJS_3_(Composition).docset](VueJS_3_%28Composition%29.docset)   (Version：**3.5.22**)
 
-## 任务列表
-- [x] 持续更新（不再更新v2版本）
-- [x] 提供制作过程 
+## 文档来源
+- [官网](https://cn.vuejs.org)
+- [Github仓库：docs-zh-cn](https://github.com/vuejs-translations/docs-zh-cn)
 
 ## 用法
  - Mac下用户下载 Dash 使用文档
  - Windows 和 Linux 用户可下载 Zeal 使用本文档
-
-## 文档来源
-- [官网](https://cn.vuejs.org)
-- [Github仓库：docs-zh-cn](https://github.com/vuejs-translations/docs-zh-cn) 
-
-## 亮点
-- 完整的中文文档
-- 包含教程、API、风格指南等多种类型的文档
-- 与官方版本交互式相同，支持搜索、目录导航等功能
-
 
 
  ##  制作 docSet 文档
@@ -326,17 +324,3 @@ function handleTitles($,relativePath,dir) {
 ### 7. 导入文档
 
 把所有的索引数据都插入到**searchIndex**以后，docSet文档就制作好了，直接双击 **VueJS.docSet**就可以导入Dash了。
-
-
-
-## 截图
-
-<img  src="./截图/01.png">
-
-<img  src="./截图/02.png"/>
-
-<img  src="./截图/03.png"/>
-
-<img  src="./截图/04.png"/>
-
-
