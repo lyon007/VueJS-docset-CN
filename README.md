@@ -1,5 +1,5 @@
 # VueJS-docset-CN
-Vue.docset 、dash 文档 、Vue3文档中文版、vue dash cn 、vue doc
+Vue.docset 、dash 文档 、Vue3文档中文版、vue dash cn 、vue docs
 
 ## 亮点
 - 完整的中文文档，包含教程、API、风格指南等多种类型的文档
